@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
 import Quiz from "./components/Quiz";
+import Recomendations from "./components/Recomendations";
 import React, { useState } from "react";
 import "./App.css";
 
@@ -9,10 +10,12 @@ const mainQuestionsMock = [
   {
     id: 1,
     text: "Опубликованы ли следующие документы, касающиеся объекта строительства в единой информационной системе жилищного строительства или на сайте застройщика?",
+    type: "main",
   },
   {
     id: 2,
     text: "На каком основании принадлежит застройщику земельный участок, на котором располагается будущий объект строительства?",
+    type: "minor",
   },
 ];
 
@@ -394,6 +397,8 @@ function App() {
   const [secondMinorSecondQuestions, setSecondMinorSecondQuestions] = useState(
     secondMinorSecondQuestionsMock
   );
+  const [recomendations, setRecomendations] = useState(recomendationsMock);
+
   return (
     <div className="wrapper">
       <Header />
@@ -407,6 +412,7 @@ function App() {
           secondMinorSecondQuestions,
         ]}
       />
+      <Recomendations Recomendations={recomendations} />
       <Footer />
     </div>
   );

@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-
 }
 
 body {
   background: #ffffff;
   color: #222;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
 
@@ -17,12 +16,12 @@ body {
   width: 1920px;
 }
 
-header .logo{
+header .logo {
   font-weight: 600;
   font-size: 30px;
 }
 
-header ul.nav{
+header ul.nav {
   float: right;
   margin-right: 50px;
   margin-top: 20px;
@@ -30,7 +29,7 @@ header ul.nav{
   font-weight: 600;
 }
 
-header ul.nav li{
+header ul.nav li {
   font-size: 20px;
   display: inline;
   margin-left: 25px;
@@ -38,22 +37,54 @@ header ul.nav li{
   transition: opacity 500ms ease;
 }
 
-header ul.nav li:hover{
+header ul.nav li:hover {
   opacity: 0.5;
 }
 
-header .presentation{
-  background: url('img/risk.jpeg') ;
+header .presentation {
+  background: url("img/risk.jpeg");
   width: 225px;
   height: 225px;
 }
 
-footer{
+footer {
   text-align: center;
   margin-top: 100px;
   font-weight: 600;
 }
 
-form label{
+.quiz {
   margin-left: 30px;
+}
+
+.quiz input {
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+.question {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.question input {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.mainQuestion {
+  font-size: large;
+  font-weight: 600;
+}
+
+.mainQuestion label {
+  margin-left: 30px;
+}
+
+.otheruestion label {
+  margin-left: 30px;
+}
+
+.recomendation div {
+  margin-top: 30px;
 }

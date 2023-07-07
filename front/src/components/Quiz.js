@@ -1,14 +1,26 @@
-import React from 'react'
+import React from "react";
 
 export default function Quiz() {
   return (
-    <form>
-        <p>Выберите, какой вид недвижимости вы хотите проверить:</p>
-        <p><input type="radio"></input>
-        <input type="radio"></input></p>
-        <p>Выберите, что именно хотите проверить:</p>
-        <input type="radio"></input>
-        <input type="radio"></input>
-   </form>
-  )
+    <form className="quiz">
+      <p>Выберите, какой вид недвижимости вы хотите проверить:</p>
+      <label>
+        <input type="radio" name="myRadio" value="No" />
+        Первичка
+      </label>
+      <label>
+        <input type="radio" name="myRadio" value="No" />
+        Вторичка
+      </label>
+      <p>Выберите, что именно хотите проверить:</p>
+      <label>
+        <input type="radio" name="myRadio" value="No" />
+        Проверка продовца
+      </label>
+      <label>
+        <input type="radio" name="myRadio" value="No" />
+        Проверка недвижимости
+      </label>
+    </form>
+  );
 }

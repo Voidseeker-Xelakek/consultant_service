@@ -12,11 +12,11 @@ export function Form({ Questions }) {
   const secondMinorSecondQuestions = Questions[4];
   return (
     <main>
+      <h1>Анкета</h1>
       <div>
         {mainQuestions.map((el, i) => (
           <div key={i}>
             <Question Question={el} />
-            <button>[eq</button>
           </div>
         ))}
       </div>
@@ -24,7 +24,6 @@ export function Form({ Questions }) {
         {firstMediumQuestions.map((el, i) => (
           <div key={i}>
             <Question Question={el} />
-            <button>[eq</button>
           </div>
         ))}
       </div>
@@ -32,7 +31,6 @@ export function Form({ Questions }) {
         {firstMinorQuestions.map((el, i) => (
           <div key={i}>
             <Question Question={el} />
-            <button>[eq</button>
           </div>
         ))}
       </div>
@@ -40,7 +38,6 @@ export function Form({ Questions }) {
         {secondMinorFirstQuestions.map((el, i) => (
           <div key={i}>
             <Question Question={el} />
-            <button>[eq</button>
           </div>
         ))}
       </div>
@@ -48,7 +45,6 @@ export function Form({ Questions }) {
         {secondMinorSecondQuestions.map((el, i) => (
           <div key={i}>
             <Question Question={el} />
-            <button>[eq</button>
           </div>
         ))}
       </div>
