@@ -88,3 +88,18 @@ footer {
 .recomendation div {
   margin-top: 30px;
 }
+
+.recomendation button {
+  margin-left: 30px;
+  font-size: large;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.recomendation button:hover {
+  text-decoration: underline;
+}
