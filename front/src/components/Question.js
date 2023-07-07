@@ -1,9 +1,9 @@
 import React from "react";
 
-export function Question({ mainQuestion }) {
+export function Question({ Question }) {
   return (
     <div>
-      <p>{mainQuestion.text}</p>
+      <p>{Question.text}</p>
       <input></input>
     </div>
   );
