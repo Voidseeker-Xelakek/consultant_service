@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 
-export default function ToggleVisibility({ children }) {
-  // React state to manage visibility
+export default function AdditionVisibility({ children }) {
   const [show, setShow] = useState();
-
-  // function to toggle the boolean value
   function toggleShow() {
     setShow(!show);
   }
