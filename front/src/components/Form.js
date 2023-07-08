@@ -8,7 +8,7 @@ export function Form({ Questions, onAnswer }) {
   const secondMinorFirstQuestions = Questions[3];
   const secondMinorSecondQuestions = Questions[4];
   return (
-    <main>
+    <main className="form-container">
       <h1>Анкета</h1>
       <div>
         {mainQuestions.map((el, i) => (
@@ -50,3 +50,6 @@ export function Form({ Questions, onAnswer }) {
 }
 
 export default Form;
+
+
+
