@@ -41,11 +41,7 @@ header ul.nav li:hover {
   opacity: 0.5;
 }
 
-header .presentation {
-  background: url("img/risk.jpeg");
-  width: 225px;
-  height: 225px;
-}
+
 
 footer {
   text-align: center;
