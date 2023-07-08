@@ -21,3 +21,6 @@ export default function Recomendations({ Recomendations, indexes }) {
     </div>
   );
 }
+
+
+
