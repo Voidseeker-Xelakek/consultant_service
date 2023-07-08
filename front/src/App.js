@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Description from "./components/Description";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
 import Quiz from "./components/Quiz";
@@ -489,6 +490,7 @@ function App() {
   return (
     <div className="wrapper">
       <Header />
+      <Description/>
       <Quiz />
       <Form
         Questions={[
