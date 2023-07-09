@@ -189,20 +189,24 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(mediumIndexDict[question.id][0])}
+                onClick={() => handleYesClick(1, onAnswer(mediumIndexDict[question.id][0]))}
                 name={question.id.toString()}
                 value="Skip"
               />
               Нет
             </label>
             <label>
-              <input type="radio" name={question.id.toString()} value="Skip" />
+              <input 
+              type="radio" 
+              onClick={() => handleYesClick(1)}
+              name={question.id.toString()} 
+              value="Skip" />
               Данные объекты отсутствуют
             </label>
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(mediumIndexDict[question.id][1])}
+                onClick={() => handleYesClick(1, onAnswer(mediumIndexDict[question.id][1]))}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -211,7 +215,7 @@ export function Question({ questionList, onAnswer }) {
           </div>
         </div>
       );
-    } else if (question.type === "medium" && question.id !== 1) {
+    } else if (question.type === "medium" && question.id === 2) {
       return (
         <div className="question">
           <div className="mainQuestion">
@@ -228,7 +232,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(mediumIndexDict[question.id][0])}
+                onClick={() => handleYesClick(8, onAnswer(mediumIndexDict[question.id][0]))}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -237,7 +241,42 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(mediumIndexDict[question.id][1])}
+                onClick={() => handleYesClick(8, onAnswer(mediumIndexDict[question.id][1]))}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
+          </div>
+        </div>
+      );
+    } else if (question.type === "medium" && question.id !== 1 && question.id !== 2) {
+      return (
+        <div className="question">
+          <div className="mainQuestion">
+            <p>{question.text}</p>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(1)}
+                name={question.id.toString()}
+                value="Yes"
+              />
+              Да
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(1, onAnswer(mediumIndexDict[question.id][0]))}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(1, onAnswer(mediumIndexDict[question.id][1]))}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -249,7 +288,7 @@ export function Question({ questionList, onAnswer }) {
     }
 
     // -------------------------------------------------------------------------------------
-    else if (question.type === "minor" && question.mainType === 1) {
+    else if (question.type === "minor" && question.mainType === 1 && question.id !== 6) {
       return (
         <div className="question">
           <div className="otherQuestion">
@@ -266,7 +305,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(5)}
+                onClick={() => handleYesClick(8 - question.id, onAnswer(5))}
                 name={question.id.toString()}
                 value="No"
               />
@@ -275,7 +314,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(4)}
+                onClick={() => handleYesClick(8 - question.id, onAnswer(4))}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -304,13 +343,18 @@ export function Question({ questionList, onAnswer }) {
               Да
             </label>
             <label>
-              <input type="radio" name={question.id.toString()} value="No" />
+              <input 
+                type="radio" 
+                onClick={() => handleYesClick(2)}
+                name={question.id.toString()} 
+                value="No" 
+              />
               Нет
             </label>
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(4)}
+                onClick={() => handleYesClick(2, 4)}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -341,7 +385,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(seondMinorIndexDict[question.id][0])}
+                onClick={() => handleYesClick(100, onAnswer(seondMinorIndexDict[question.id][0]))}
                 name={question.id.toString()}
                 value="No"
               />
@@ -350,7 +394,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(seondMinorIndexDict[question.id][1])}
+                onClick={() => handleYesClick(100, onAnswer(seondMinorIndexDict[question.id][1]))}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -359,7 +403,7 @@ export function Question({ questionList, onAnswer }) {
           </div>
         </div>
       );
-    } else if (question.type === "minor" && question.mainType === 2) {
+    } else if (question.type === "minor" && question.mainType === 2 && question.id !== 4) {
       // для миноров
       return (
         <div className="question">
@@ -377,7 +421,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(seondMinorIndexDict[question.id][0])}
+                onClick={() => handleYesClick(1, onAnswer(seondMinorIndexDict[question.id][0]))}
                 name={question.id.toString()}
                 value="No"
               />
@@ -386,7 +430,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(seondMinorIndexDict[question.id][1])}
+                onClick={() => handleYesClick(1, onAnswer(seondMinorIndexDict[question.id][1]))}
                 name={question.id.toString()}
                 value="Skip"
               />
