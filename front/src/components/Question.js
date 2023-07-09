@@ -30,8 +30,11 @@ const seondMinorIndexDict = {
 export function Question({ questionList, onAnswer }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  const handleYesClick = () => {
-    setCurrentQuestion(currentQuestion + 1);
+  const handleYesClick = (value, id) => {
+    setCurrentQuestion(currentQuestion + value);
+    if (id) {
+      onAnswer(id);
+    }
   };
 
   const renderQuestion = () => {
@@ -51,7 +54,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={handleYesClick}
+                onClick={() => handleYesClick(1)}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -60,7 +63,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(24)}
+                onClick={() => handleYesClick(19, 24)}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -69,7 +72,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(24)}
+                onClick={() => handleYesClick(19, 24)}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -85,7 +88,12 @@ export function Question({ questionList, onAnswer }) {
           <div className="mainQuestion">
             <p>{question.text}</p>
             <label>
-              <input type="radio" name={question.id.toString} value="Yes" />
+              <input
+                type="radio"
+                onClick={() => handleYesClick(1)}
+                name={question.id.toString}
+                value="Yes"
+              />
               Право собственности
             </label>
             <label>
@@ -98,7 +106,12 @@ export function Question({ questionList, onAnswer }) {
               Право бессрочного пользования
             </label>
             <label>
-              <input type="radio" name={question.id.toString()} value="Skip" />
+              <input
+                type="radio"
+                onClick={() => handleYesClick(5)}
+                name={question.id.toString()}
+                value="Skip"
+              />
               Право аренды
             </label>
             <label>
@@ -129,13 +142,18 @@ export function Question({ questionList, onAnswer }) {
           <div className="mainQuestion">
             <p>{question.text}</p>
             <label>
-              <input type="radio" name={question.id.toString()} value="Yes" />
+              <input
+                type="radio"
+                onClick={() => handleYesClick(1)}
+                name={question.id.toString()}
+                value="Yes"
+              />
               Да
             </label>
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(5)}
+                onClick={() => handleYesClick(1, 5)}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -144,7 +162,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(4)}
+                onClick={() => handleYesClick(1, 4)}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -162,7 +180,7 @@ export function Question({ questionList, onAnswer }) {
             <label>
               <input
                 type="radio"
-                onClick={handleYesClick}
+                onClick={() => handleYesClick(1)}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -194,13 +212,17 @@ export function Question({ questionList, onAnswer }) {
         </div>
       );
     } else if (question.type === "medium" && question.id !== 1) {
-      // для медиумов (да нет объекты скип)
       return (
         <div className="question">
           <div className="mainQuestion">
             <p>{question.text}</p>
             <label>
-              <input type="radio" name={question.id.toString()} value="Yes" />
+              <input
+                type="radio"
+                onClick={() => handleYesClick(1)}
+                name={question.id.toString()}
+                value="Yes"
+              />
               Да
             </label>
             <label>
@@ -228,13 +250,17 @@ export function Question({ questionList, onAnswer }) {
 
     // -------------------------------------------------------------------------------------
     else if (question.type === "minor" && question.mainType === 1) {
-      // для миноров
       return (
         <div className="question">
           <div className="otherQuestion">
             <p>{question.text}</p>
             <label>
-              <input type="radio" name={question.id.toString()} value="Yes" />
+              <input
+                type="radio"
+                onClick={() => handleYesClick(1)}
+                name={question.id.toString()}
+                value="Yes"
+              />
               Да
             </label>
             <label>
@@ -269,7 +295,12 @@ export function Question({ questionList, onAnswer }) {
           <div className="otherQuestion">
             <p>{question.text}</p>
             <label>
-              <input type="radio" name={question.id.toString()} value="Yes" />
+              <input
+                type="radio"
+                onClick={() => handleYesClick(1)}
+                name={question.id.toString()}
+                value="Yes"
+              />
               Да
             </label>
             <label>
@@ -288,6 +319,46 @@ export function Question({ questionList, onAnswer }) {
           </div>
         </div>
       );
+    } else if (
+      question.type === "minor" &&
+      question.mainType === 2 &&
+      question.id === 4
+    ) {
+      // для миноров
+      return (
+        <div className="question">
+          <div className="otherQuestion">
+            <p>{question.text}</p>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(100)}
+                name={question.id.toString()}
+                value="Yes"
+              />
+              Да
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(seondMinorIndexDict[question.id][0])}
+                name={question.id.toString()}
+                value="No"
+              />
+              Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(seondMinorIndexDict[question.id][1])}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
+          </div>
+        </div>
+      );
     } else if (question.type === "minor" && question.mainType === 2) {
       // для миноров
       return (
@@ -295,7 +366,12 @@ export function Question({ questionList, onAnswer }) {
           <div className="otherQuestion">
             <p>{question.text}</p>
             <label>
-              <input type="radio" name={question.id.toString()} value="Yes" />
+              <input
+                type="radio"
+                onClick={() => handleYesClick(1)}
+                name={question.id.toString()}
+                value="Yes"
+              />
               Да
             </label>
             <label>
