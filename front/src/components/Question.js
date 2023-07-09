@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export let recsIndexes = [];
 
@@ -27,275 +27,301 @@ const seondMinorIndexDict = {
   8: [36, 32],
 };
 
-export function Question({ question, onAnswer }) {
-  if (question.type === "main" && question.id === 1) {
-    // для main - объекты = пропустить
-    return (
-      <div className="question">
-        <div className="mainQuestion">
-          <p>{question.text}</p>
-          <label>
-            <input type="radio" name={question.id.toString()} value="Yes" />
-            Да
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(24)}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Нет
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(24)}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Пропустить
-          </label>
-        </div>
-      </div>
-    );
-  } else if (question.type === "main" && question.id === 2) {
-    // для main где много вариантов
-    return (
-      <div className="question">
-        <div className="mainQuestion">
-          <p>{question.text}</p>
-          <label>
-            <input type="radio" name={question.id.toString} value="Yes" />
-            Право собственности
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(37)}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Право бессрочного пользования
-          </label>
-          <label>
-            <input type="radio" name={question.id.toString()} value="Skip" />
-            Право аренды
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(25)}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Данная информация отсутствует
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(26)}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Пропустить
-          </label>
-        </div>
-      </div>
-    );
-  } else if (question.type === "superMinor") {
-    // для медиумов (да нет скип)
-    return (
-      <div className="question">
-        <div className="mainQuestion">
-          <p>{question.text}</p>
-          <label>
-            <input type="radio" name={question.id.toString()} value="Yes" />
-            Да
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(5)}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Нет
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(4)}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Пропустить
-          </label>
-        </div>
-      </div>
-    );
-  } else if (question.type === "medium" && question.id === 1) {
-    // для медиумов (да нет объекты скип)
-    return (
-      <div className="question">
-        <div className="mainQuestion">
-          <p>{question.text}</p>
-          <label>
-            <input type="radio" name={question.id.toString()} value="Yes" />
-            Да
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(mediumIndexDict[question.id][0])}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Нет
-          </label>
-          <label>
-            <input type="radio" name={question.id.toString()} value="Skip" />
-            Данные объекты отсутствуют
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(mediumIndexDict[question.id][1])}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Пропустить
-          </label>
-        </div>
-      </div>
-    );
-  } else if (question.type === "medium" && question.id !== 1) {
-    // для медиумов (да нет объекты скип)
-    return (
-      <div className="question">
-        <div className="mainQuestion">
-          <p>{question.text}</p>
-          <label>
-            <input type="radio" name={question.id.toString()} value="Yes" />
-            Да
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(mediumIndexDict[question.id][0])}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Нет
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(mediumIndexDict[question.id][1])}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Пропустить
-          </label>
-        </div>
-      </div>
-    );
-  }
+export function Question({ questionList, onAnswer }) {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  // -------------------------------------------------------------------------------------
-  else if (question.type === "minor" && question.mainType === 1) {
-    // для миноров
-    return (
-      <div className="question">
-        <div className="otherQuestion">
-          <p>{question.text}</p>
-          <label>
-            <input type="radio" name={question.id.toString()} value="Yes" />
-            Да
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(5)}
-              name={question.id.toString()}
-              value="No"
-            />
-            Нет
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(4)}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Пропустить
-          </label>
+  const handleYesClick = () => {
+    setCurrentQuestion(currentQuestion + 1);
+  };
+
+  const renderQuestion = () => {
+    const questions = questionList;
+
+    const question = questions[currentQuestion];
+    if (!question) {
+      return <h1>Спасибо за ответы</h1>;
+    }
+
+    if (question.type === "main" && question.id === 1) {
+      // для main - объекты = пропустить
+      return (
+        <div className="question">
+          <div className="mainQuestion">
+            <p>{question.text}</p>
+            <label>
+              <input
+                type="radio"
+                onClick={handleYesClick}
+                name={question.id.toString()}
+                value="Yes"
+              />
+              Да
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(24)}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(24)}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
+          </div>
         </div>
-      </div>
-    );
-  } else if (
-    question.type === "minor" &&
-    question.mainType === 1 &&
-    question.id === 6
-  ) {
-    // для миноров
-    return (
-      <div className="question">
-        <div className="otherQuestion">
-          <p>{question.text}</p>
-          <label>
-            <input type="radio" name={question.id.toString()} value="Yes" />
-            Да
-          </label>
-          <label>
-            <input type="radio" name={question.id.toString()} value="No" />
-            Нет
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(4)}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Пропустить
-          </label>
+      );
+    } else if (question.type === "main" && question.id === 2) {
+      // для main где много вариантов
+      return (
+        <div className="question">
+          <div className="mainQuestion">
+            <p>{question.text}</p>
+            <label>
+              <input type="radio" name={question.id.toString} value="Yes" />
+              Право собственности
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(37)}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Право бессрочного пользования
+            </label>
+            <label>
+              <input type="radio" name={question.id.toString()} value="Skip" />
+              Право аренды
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(25)}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Данная информация отсутствует
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(26)}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
+          </div>
         </div>
-      </div>
-    );
-  } else if (question.type === "minor" && question.mainType === 2) {
-    // для миноров
-    return (
-      <div className="question">
-        <div className="otherQuestion">
-          <p>{question.text}</p>
-          <label>
-            <input type="radio" name={question.id.toString()} value="Yes" />
-            Да
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(seondMinorIndexDict[question.id][0])}
-              name={question.id.toString()}
-              value="No"
-            />
-            Нет
-          </label>
-          <label>
-            <input
-              type="radio"
-              onClick={() => onAnswer(seondMinorIndexDict[question.id][1])}
-              name={question.id.toString()}
-              value="Skip"
-            />
-            Пропустить
-          </label>
+      );
+    } else if (question.type === "superMinor") {
+      // для медиумов (да нет скип)
+      return (
+        <div className="question">
+          <div className="mainQuestion">
+            <p>{question.text}</p>
+            <label>
+              <input type="radio" name={question.id.toString()} value="Yes" />
+              Да
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(5)}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(4)}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
+          </div>
         </div>
-      </div>
-    );
-  }
+      );
+    } else if (question.type === "medium" && question.id === 1) {
+      // для медиумов (да нет объекты скип)
+      return (
+        <div className="question">
+          <div className="mainQuestion">
+            <p>{question.text}</p>
+            <label>
+              <input
+                type="radio"
+                onClick={handleYesClick}
+                name={question.id.toString()}
+                value="Yes"
+              />
+              Да
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(mediumIndexDict[question.id][0])}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Нет
+            </label>
+            <label>
+              <input type="radio" name={question.id.toString()} value="Skip" />
+              Данные объекты отсутствуют
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(mediumIndexDict[question.id][1])}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
+          </div>
+        </div>
+      );
+    } else if (question.type === "medium" && question.id !== 1) {
+      // для медиумов (да нет объекты скип)
+      return (
+        <div className="question">
+          <div className="mainQuestion">
+            <p>{question.text}</p>
+            <label>
+              <input type="radio" name={question.id.toString()} value="Yes" />
+              Да
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(mediumIndexDict[question.id][0])}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(mediumIndexDict[question.id][1])}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
+          </div>
+        </div>
+      );
+    }
+
+    // -------------------------------------------------------------------------------------
+    else if (question.type === "minor" && question.mainType === 1) {
+      // для миноров
+      return (
+        <div className="question">
+          <div className="otherQuestion">
+            <p>{question.text}</p>
+            <label>
+              <input type="radio" name={question.id.toString()} value="Yes" />
+              Да
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(5)}
+                name={question.id.toString()}
+                value="No"
+              />
+              Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(4)}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
+          </div>
+        </div>
+      );
+    } else if (
+      question.type === "minor" &&
+      question.mainType === 1 &&
+      question.id === 6
+    ) {
+      // для миноров
+      return (
+        <div className="question">
+          <div className="otherQuestion">
+            <p>{question.text}</p>
+            <label>
+              <input type="radio" name={question.id.toString()} value="Yes" />
+              Да
+            </label>
+            <label>
+              <input type="radio" name={question.id.toString()} value="No" />
+              Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(4)}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
+          </div>
+        </div>
+      );
+    } else if (question.type === "minor" && question.mainType === 2) {
+      // для миноров
+      return (
+        <div className="question">
+          <div className="otherQuestion">
+            <p>{question.text}</p>
+            <label>
+              <input type="radio" name={question.id.toString()} value="Yes" />
+              Да
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(seondMinorIndexDict[question.id][0])}
+                name={question.id.toString()}
+                value="No"
+              />
+              Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => onAnswer(seondMinorIndexDict[question.id][1])}
+                name={question.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
+          </div>
+        </div>
+      );
+    }
+  };
+  return <div>{renderQuestion()}</div>;
 }
 
 export default Question;

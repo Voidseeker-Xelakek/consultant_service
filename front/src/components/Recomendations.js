@@ -4,7 +4,6 @@ import Addition from "./Addition";
 import { recsIndexes } from "./Question";
 
 export default function Recomendations({ Recomendations, indexes }) {
-  console.log(indexes);
   return (
     <div className="recomendation">
       <h1>Рекомендации</h1>
@@ -16,7 +15,7 @@ export default function Recomendations({ Recomendations, indexes }) {
               <span className="recommendation-text">{el.shortText}</span>
               {el.longText !== null && (
                 <AdditionVisibility>
-                  <Addition Addition={el.longText} />
+                  <Addition addition={el.longText} />
                 </AdditionVisibility>
               )}
             </div>
@@ -26,8 +25,3 @@ export default function Recomendations({ Recomendations, indexes }) {
     </div>
   );
 }
-
-
-
-
-

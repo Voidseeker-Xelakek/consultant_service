@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Addition({ Addition }) {
+export default function Addition({ addition }) {
   return (
     <div className="default-container">
-      <p>{Addition}</p>
+      <p>{addition}</p>
     </div>
   );
 }
