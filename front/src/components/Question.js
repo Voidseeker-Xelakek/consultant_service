@@ -8,7 +8,7 @@ export function Question({ Question, onAnswer }) {
     console.log(recsIndexes);
   }
 
-  if (Question.type === "main" && Question.id === 1) {
+  if (Question.type === "main" && Question.id === 1) { // для main - объекты = пропустить
     return (
       <div className="question">
         <div className="mainQuestion">
@@ -38,7 +38,7 @@ export function Question({ Question, onAnswer }) {
         </div>
       </div>
     );
-  } else if (Question.type === "main" && Question.id === 2) {
+  } else if (Question.type === "main" && Question.id === 2) { // для main где много вариантов
     return (
       <div className="question">
         <div className="mainQuestion">
@@ -71,7 +71,7 @@ export function Question({ Question, onAnswer }) {
         </div>
       </div>
     );
-  } else if (Question.type === "medium" && Question.id === 1) {
+  } else if (Question.type === "medium" && Question.id === 1) { // для медиумов (да нет объекты скип)
     return (
       <div className="question">
         <div className="mainQuestion">
@@ -95,7 +95,11 @@ export function Question({ Question, onAnswer }) {
         </div>
       </div>
     );
-  } else if (Question.type === "medium") {
+  } 
+  
+  // ------------------------------------------------------------------------------------
+
+  else if (Question.type === "medium") { // для медиумов (да нет скип)
     return (
       <div className="question">
         <div className="mainQuestion">
@@ -115,7 +119,451 @@ export function Question({ Question, onAnswer }) {
         </div>
       </div>
     );
-  } else {
+  } else if (Question.type === "medium") { // для медиумов (да нет скип)
+    return (
+      <div className="question">
+        <div className="mainQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "medium") { // для медиумов (да нет скип)
+    return (
+      <div className="question">
+        <div className="mainQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "medium") { // для медиумов (да нет скип)
+    return (
+      <div className="question">
+        <div className="mainQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "medium") { // для медиумов (да нет скип)
+    return (
+      <div className="question">
+        <div className="mainQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "medium") { // для медиумов (да нет скип)
+    return (
+      <div className="question">
+        <div className="mainQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "medium") { // для медиумов (да нет скип)
+    return (
+      <div className="question">
+        <div className="mainQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "medium") { // для медиумов (да нет скип)
+    return (
+      <div className="question">
+        <div className="mainQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "medium") { // для медиумов (да нет скип)
+    return (
+      <div className="question">
+        <div className="mainQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "medium") { // для медиумов (да нет скип)
+    return (
+      <div className="question">
+        <div className="mainQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  }
+
+  // -------------------------------------------------------------------------------------
+  
+  else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
+    return (
+      <div className="question">
+        <div className="otherQuestion">
+          <p>{Question.text}</p>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Yes" />
+            Да
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="No" />
+            Нет
+          </label>
+          <label>
+            <input type="radio" name={Question.id.toString()} value="Skip" />
+            Пропустить
+          </label>
+        </div>
+      </div>
+    );
+  } else if (Question.type === "minor") { // для миноров
     return (
       <div className="question">
         <div className="otherQuestion">

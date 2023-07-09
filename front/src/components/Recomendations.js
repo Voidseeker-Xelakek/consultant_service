@@ -10,18 +10,24 @@ export default function Recomendations({ Recomendations, indexes }) {
       <h1>Рекомендации</h1>
       {Recomendations.map((el, i) => (
         <div key={i} className="shortRecomandation">
-          {indexes.includes(el.id) && el.id}
-          {indexes.includes(el.id) && el.shortText}
-          {el.longText !== null && indexes.includes(el.id) && (
-            <AdditionVisibility>
-              <Addition Addition={el.longText} />
-            </AdditionVisibility>
+          {indexes.includes(el.id) && (
+            <div className="recommendation-item">
+              <span className="recommendation-id">{el.id}.</span>{" "}
+              <span className="recommendation-text">{el.shortText}</span>
+              {el.longText !== null && (
+                <AdditionVisibility>
+                  <Addition Addition={el.longText} />
+                </AdditionVisibility>
+              )}
+            </div>
           )}
         </div>
       ))}
     </div>
   );
 }
+
+
 
 
 

@@ -124,3 +124,19 @@ footer {
   padding: 10px;
 }
 
+.recommendation-item {
+  border: 3px solid #67249d;
+  padding: 10px; 
+  margin-bottom: 10px; 
+}
+
+.recommendation-id {
+  font-weight: bold; 
+}
+
+footer {
+  margin-bottom: 10px; 
+}
+
+
+
