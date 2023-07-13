@@ -908,9 +908,9 @@ function App() {
     }
   };
 
-  const lastAnswer = (index, type) => {
-    if (!prevQuestions.includes(index)) {
-      setPrevQuestions((prev) => [...prev, [index, type]]); // index = [id, type]
+  const lastAnswer = (index, type, answer) => {
+    if (!prevQuestions.some(item => item[0] === index && item[1] === type)) {
+      setPrevQuestions(prev => [...prev, [index, type, answer]]);
     }
   };
 
