@@ -49,7 +49,7 @@ body {
 } */
 
 footer {
-  text-align: center;
+  text-align: right;
   margin-top: 100px;
   font-weight: 600;
 }
@@ -65,29 +65,29 @@ footer {
 }
 
 .question {
-  display: block;
   margin-top: 30px;
   margin-left: 10px;
 }
 
 .question input {
-  margin-left: 10px;
-  margin-top: 10px;
+  float: left;
+  margin-right: 10px;
+}
+.question label {
+  display: block;
+  overflow: hidden;
 }
 
 .mainQuestion {
-  display: block;
   font-size: large;
   font-weight: 600;
 }
 
 .mainQuestion label {
-  display: block;
   margin-left: 30px;
 }
 
 .otheruestion label {
-  display: block;
   margin-left: 30px;
 }
 
