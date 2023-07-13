@@ -13,8 +13,18 @@
   color: black;
 }
 
-.left-section,
-.center-section,
+.left-section{
+  flex: 0.3; /* Равномерное распределение пространства */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-section{
+  flex: 1.7; /* Равномерное распределение пространства */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .right-section {
   flex: 1; /* Равномерное распределение пространства */
   display: flex;
@@ -23,9 +33,9 @@
 }
 
 .logo {
-  background-color: #740ea3 !important;
+  background-color: #c30df1 !important;
   height: 10vmin;
-  width: 60vb;
+  width: 250vb;
   display: flex;
   align-items: center;
   justify-content: center;
