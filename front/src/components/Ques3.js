@@ -10,7 +10,7 @@ const mediumIndexDict3 = {
   5: [6, 6],
 };
 
-export function Question({ questionList3, onAnswer }) {
+export function Question({ questionsList, onAnswer }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const handleYesClick = (value, id) => {
@@ -21,7 +21,7 @@ export function Question({ questionList3, onAnswer }) {
   };
 
   const renderQuestion = () => {
-    const questions3 = questionList3;
+    const questions3 = questionsList;
 
     const question3 = questions3[currentQuestion];
     if (!question3) {
@@ -56,75 +56,84 @@ export function Question({ questionList3, onAnswer }) {
         </div>
       );
     } else if (question3.type === "medium" && question3.id !== 5) {
-        return (
-          <div className="question">
-            <div className="mainQuestion">
-              <p>{question3.text}</p>
-              <label>
-                <input
-                  type="radio"
-                  onClick={() => handleYesClick(1)}
-                  name={question3.id.toString()}
-                  value="Yes"
-                />
-                Да
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  onClick={() => handleYesClick(1, onAnswer(mediumIndexDict3[question3.id][0]))}
-                  name={question3.id.toString()}
-                  value="Skip"
-                />
-                Нет
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  onClick={() => handleYesClick(1, onAnswer(mediumIndexDict3[question3.id][1]))}
-                  name={question3.id.toString()}
-                  value="Skip"
-                />
-                Пропустить
-              </label>
-            </div>
+      return (
+        <div className="question">
+          <div className="mainQuestion">
+            <p>{question3.text}</p>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(1)}
+                name={question3.id.toString()}
+                value="Yes"
+              />
+              Да
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() =>
+                  handleYesClick(1, onAnswer(mediumIndexDict3[question3.id][0]))
+                }
+                name={question3.id.toString()}
+                value="Skip"
+              />
+              Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() =>
+                  handleYesClick(1, onAnswer(mediumIndexDict3[question3.id][1]))
+                }
+                name={question3.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
           </div>
-        );
+        </div>
+      );
     } else if (question3.type === "medium" && question3.id === 5) {
-        return (
-          <div className="question">
-            <div className="mainQuestion">
-              <p>{question3.text}</p>
-              <label>
-                <input
-                  type="radio"
-                  onClick={() => handleYesClick(100, 6)}
-                  name={question3.id.toString()}
-                  value="Yes"
-                />
-                Да
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  onClick={() => handleYesClick(100)}
-                  name={question3.id.toString()}
-                  value="Skip"
-                />
-                Нет
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  onClick={() => handleYesClick(100, onAnswer(mediumIndexDict3[question3.id][1]))}
-                  name={question3.id.toString()}
-                  value="Skip"
-                />
-                Пропустить
-              </label>
-            </div>
+      return (
+        <div className="question">
+          <div className="mainQuestion">
+            <p>{question3.text}</p>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(100, 6)}
+                name={question3.id.toString()}
+                value="Yes"
+              />
+              Да
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(100)}
+                name={question3.id.toString()}
+                value="Skip"
+              />
+              Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() =>
+                  handleYesClick(
+                    100,
+                    onAnswer(mediumIndexDict3[question3.id][1])
+                  )
+                }
+                name={question3.id.toString()}
+                value="Skip"
+              />
+              Пропустить
+            </label>
           </div>
-        );
+        </div>
+      );
     }
   };
   return <div>{renderQuestion()}</div>;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Question from "./Question";
+import Ques3 from "./Ques3";
 
 export let recsIndexes = [];
 
@@ -31,29 +32,35 @@ const superMinorIndexDict2 = {
   8: [12, 8],
 };
 
+let toAsk = [];
+
 export function Ques2({ questionsList, onAnswer }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-
   const handleYesClick = (value, id) => {
-    if (value === "Даня") {
-      renderQuestion();
-    }
-    setCurrentQuestion(currentQuestion + value);
-    if (id) {
-      onAnswer(id);
+    if (value === "Даня" || value === "Галя") {
+      toAsk.push(value);
+      setCurrentQuestion(currentQuestion + 100);
+    } else {
+      setCurrentQuestion(currentQuestion + value);
+      if (id) {
+        onAnswer(id);
+      }
     }
   };
 
   const renderQuestion = () => {
     const questions2 = questionsList[1];
-
     const question2 = questions2[currentQuestion];
-    if (!question2) {
-      return <Question questionList={questionsList[0]} onAnswer={onAnswer} />;
+    if (!question2 && toAsk.includes("Даня")) {
+      console.log("lel");
+      return <Question questionsList={questionsList[0]} onAnswer={onAnswer} />;
+    } else if (!question2 && toAsk.includes("Галя")) {
+      return <Ques3 questionsList={questionsList[2]} onAnswer={onAnswer} />;
+    } else if (!question2) {
+      console.log(toAsk);
+      return <h1>Спасибо за ответы</h1>;
     }
-
     if (question2.type === "main" && question2.id === 1) {
-      // для main - объекты = пропустить
       return (
         <div className="question">
           <div className="mainQuestion">
