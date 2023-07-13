@@ -8,7 +8,7 @@
 body {
   background: #ffffff;
   color: #222;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Aerial", sans-serif;
   font-weight: 300;
 }
 
@@ -55,6 +55,8 @@ footer {
 }
 
 .quiz {
+  text-align: center;
+  font-weight: bold;
   margin-left: 30px;
   font-size: 20px;
 }
@@ -80,7 +82,7 @@ footer {
 
 .mainQuestion {
   font-size: large;
-  font-weight: 600;
+  font-weight: 100;
 }
 
 .mainQuestion label {
