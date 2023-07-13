@@ -1,11 +1,9 @@
 import React from "react";
 import AdditionVisibility from "./AdditionVisibility";
 import Addition from "./Addition";
-import { recsIndexes } from "./Question";
 
 export default function Recomendations({ recomendations, indexes }) {
   console.log(indexes);
-
   return (
     <div className="recomendation">
       <h1>Рекомендации</h1>

@@ -35,17 +35,15 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
     setCurrentQuestion(currentQuestion + value);
     if (id) {
       onAnswer(id);
-      console.log(id);
     }
   };
 
   const renderQuestion = () => {
     const questions = questionsList;
-
     const question = questions[currentQuestion];
     if (!question) {
       return (
-        <div className="description">
+        <div>
           <h1>Спасибо за ответы</h1>
           <Recomendations recomendations={recomendations} indexes={indexes} />
         </div>
@@ -53,7 +51,6 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
     }
 
     if (question.type === "main" && question.id === 1) {
-      // для main - объекты = пропустить
       return (
         <div className="question">
           <div className="mainQuestion">
@@ -98,7 +95,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
               <input
                 type="radio"
                 onClick={() => handleYesClick(1)}
-                name={question.id.toString}
+                name={question.id.toString()}
                 value="Yes"
               />
               Право собственности

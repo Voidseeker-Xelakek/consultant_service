@@ -3,9 +3,10 @@ import Description from "./components/Description";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
 import Quiz from "./components/Quiz";
-import Recomendations from "./components/Recomendations";
 import Instruction from "./components/Instruction";
+import Recomendations from "./components/Recomendations";
 import React, { useState } from "react";
+import PreviousQuestions from "./components/PreviousQuestions";
 import "./App.css";
 
 const questions1 = [
@@ -889,8 +890,6 @@ const recomendations3 = [
       "Рекомендуем обращать внимание на информацию из СМИ о застройщике, оценку строительной фирмы от эксперта в данной отрасли и других источников, которые могут помочь вам оценить добросовестность застройщика.",
     longText: null,
 
-    longText: "",
-
     risk: 6,
     risk_no: 0,
     risk_skip: 0,
@@ -901,9 +900,18 @@ const questions = [questions1, questions2, questions3];
 
 function App() {
   const [indexes, setIndexes] = useState([]);
+  const [prevQuestions, setPrevQuestions] = useState([]);
 
   const onAnswer = (index) => {
-    setIndexes((prev) => [...prev, index]);
+    if (!indexes.includes(index)) {
+      setIndexes((prev) => [...prev, index]);
+    }
+  };
+
+  const lastAnswer = (index) => {
+    if (!prevQuestions.includes(index)) {
+      setPrevQuestions((prev) => [...prev, index]); // index = [id, type]
+    }
   };
 
   return (
@@ -912,9 +920,14 @@ function App() {
       <Description />
       <Instruction />
       <Quiz />
+      <PreviousQuestions
+        allQuestions={questions2}
+        prevQuestions={prevQuestions}
+      />
       <Form
         questions={questions}
         onAnswer={onAnswer}
+        lastAnswer={lastAnswer}
         recomendations={recomendations1}
         indexes={indexes}
       />

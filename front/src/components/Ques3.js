@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Recomendations from "./Recomendations";
 
 export let recsIndexes = [];
 
@@ -10,12 +11,14 @@ const mediumIndexDict3 = {
   5: [6, 6],
 };
 
-export function Question({ questionsList, onAnswer }) {
+export function Question({ questionsList, onAnswer, recomendations, indexes }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const handleYesClick = (value, id) => {
     setCurrentQuestion(currentQuestion + value);
     if (id) {
+      onAnswer(id);
+      console.log(id);
       onAnswer(id);
     }
   };
@@ -25,7 +28,12 @@ export function Question({ questionsList, onAnswer }) {
 
     const question3 = questions3[currentQuestion];
     if (!question3) {
-      return <h1>Спасибо за ответы</h1>;
+      return (
+        <div>
+          <h1>Спасибо за ответы</h1>
+          <Recomendations recomendations={recomendations} indexes={indexes} />
+        </div>
+      );
     }
 
     if (question3.type === "main") {

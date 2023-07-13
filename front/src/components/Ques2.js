@@ -34,9 +34,15 @@ const superMinorIndexDict2 = {
 
 let toAsk = [];
 
-export function Ques2({ questionsList, onAnswer, recomendations, indexes }) {
+export function Ques2({
+  questionsList,
+  onAnswer,
+  lastAnswer,
+  recomendations,
+  indexes,
+}) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const handleYesClick = (value, id) => {
+  const handleYesClick = (value, id, questionId) => {
     if (value === "Даня" || value === "Галя") {
       toAsk.push(value);
       setCurrentQuestion(currentQuestion + 100);
@@ -46,6 +52,7 @@ export function Ques2({ questionsList, onAnswer, recomendations, indexes }) {
         onAnswer(id);
       }
     }
+    lastAnswer(questionId);
   };
 
   const renderQuestion = () => {
@@ -62,9 +69,15 @@ export function Ques2({ questionsList, onAnswer, recomendations, indexes }) {
         />
       );
     } else if (!question2 && toAsk.includes("Галя")) {
-      return <Ques3 questionsList={questionsList[2]} onAnswer={onAnswer} />;
+      return (
+        <Ques3
+          questionsList={questionsList[2]}
+          onAnswer={onAnswer}
+          recomendations={recomendations}
+          indexes={indexes}
+        />
+      );
     } else if (!question2) {
-      console.log(toAsk);
       return <h1>Спасибо за ответы</h1>;
     }
     if (question2.type === "main" && question2.id === 1) {
@@ -75,7 +88,7 @@ export function Ques2({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question2.id)}
                 name={question2.id.toString()}
                 value="Yes"
               />
@@ -84,7 +97,7 @@ export function Ques2({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(8)}
+                onClick={() => handleYesClick(8, null, question2.id)}
                 name={question2.id.toString()}
                 value="Skip"
               />
