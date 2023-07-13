@@ -909,11 +909,7 @@ function App() {
   };
 
   const lastAnswer = (index, type) => {
-    if (
-      !prevQuestions.some((item) => {
-        return JSON.stringify(item) === JSON.stringify([index, type]);
-      })
-    ) {
+    if (!prevQuestions.includes(index)) {
       setPrevQuestions((prev) => [...prev, [index, type]]); // index = [id, type]
     }
   };
