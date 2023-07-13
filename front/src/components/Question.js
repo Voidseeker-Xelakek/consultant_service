@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Description from "./Description";
+import Recomendations from "./Recomendations";
 
 export let recsIndexes = [];
 
@@ -28,13 +28,14 @@ const seondMinorIndexDict = {
   8: [36, 32],
 };
 
-export function Question({ questionsList, onAnswer }) {
+export function Question({ questionsList, onAnswer, recomendations, indexes }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const handleYesClick = (value, id) => {
     setCurrentQuestion(currentQuestion + value);
     if (id) {
       onAnswer(id);
+      console.log(id);
     }
   };
 
@@ -46,7 +47,7 @@ export function Question({ questionsList, onAnswer }) {
       return (
         <div className="description">
           <h1>Спасибо за ответы</h1>
-          <Description />;
+          <Recomendations recomendations={recomendations} indexes={indexes} />
         </div>
       );
     }

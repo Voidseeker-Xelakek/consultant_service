@@ -887,8 +887,7 @@ const recomendations3 = [
     id: 6,
     shortText:
       "Рекомендуем обращать внимание на информацию из СМИ о застройщике, оценку строительной фирмы от эксперта в данной отрасли и других источников, которые могут помочь вам оценить добросовестность застройщика.",
-    longText:
-      null,
+    longText: null,
 
     longText: "",
 
@@ -913,8 +912,12 @@ function App() {
       <Description />
       <Instruction />
       <Quiz />
-      <Form questions={questions} onAnswer={onAnswer} />
-      <Recomendations Recomendations={recomendations2} indexes={indexes} />
+      <Form
+        questions={questions}
+        onAnswer={onAnswer}
+        recomendations={recomendations1}
+        indexes={indexes}
+      />
       <Footer />
     </div>
   );

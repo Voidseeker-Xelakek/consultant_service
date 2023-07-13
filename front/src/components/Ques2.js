@@ -34,7 +34,7 @@ const superMinorIndexDict2 = {
 
 let toAsk = [];
 
-export function Ques2({ questionsList, onAnswer }) {
+export function Ques2({ questionsList, onAnswer, recomendations, indexes }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const handleYesClick = (value, id) => {
     if (value === "Даня" || value === "Галя") {
@@ -53,7 +53,14 @@ export function Ques2({ questionsList, onAnswer }) {
     const question2 = questions2[currentQuestion];
     if (!question2 && toAsk.includes("Даня")) {
       console.log("lel");
-      return <Question questionsList={questionsList[0]} onAnswer={onAnswer} />;
+      return (
+        <Question
+          questionsList={questionsList[0]}
+          onAnswer={onAnswer}
+          recomendations={recomendations}
+          indexes={indexes}
+        />
+      );
     } else if (!question2 && toAsk.includes("Галя")) {
       return <Ques3 questionsList={questionsList[2]} onAnswer={onAnswer} />;
     } else if (!question2) {
