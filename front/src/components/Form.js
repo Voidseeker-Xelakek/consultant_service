@@ -1,12 +1,12 @@
 import React from "react";
-import Question from "./Question";
+import Ques2 from "./Ques2";
 
 export function Form({ questions, onAnswer }) {
   return (
     <main className="form-container">
       <h1>Анкета</h1>
       <div>
-        <Question questionList={questions} onAnswer={onAnswer} />
+        <Ques2 questionsList={questions} onAnswer={onAnswer} />
       </div>
     </main>
   );
