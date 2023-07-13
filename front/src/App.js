@@ -908,9 +908,9 @@ function App() {
     }
   };
 
-  const lastAnswer = (index) => {
+  const lastAnswer = (index, type) => {
     if (!prevQuestions.includes(index)) {
-      setPrevQuestions((prev) => [...prev, index]); // index = [id, type]
+      setPrevQuestions((prev) => [...prev, [index, type]]); // index = [id, type]
     }
   };
 
