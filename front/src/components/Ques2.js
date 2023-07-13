@@ -88,7 +88,9 @@ export function Ques2({
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1, null, question2.id, question2.type)}
+                onClick={() =>
+                  handleYesClick(1, null, question2.id, question2.type)
+                }
                 name={question2.id.toString()}
                 value="Yes"
               />
@@ -97,7 +99,9 @@ export function Ques2({
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(8, null, question2.id, question2.type)}
+                onClick={() =>
+                  handleYesClick(8, null, question2.id, question2.type)
+                }
                 name={question2.id.toString()}
                 value="Skip"
               />
