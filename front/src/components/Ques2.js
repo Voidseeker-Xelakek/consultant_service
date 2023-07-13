@@ -42,7 +42,7 @@ export function Ques2({
   indexes,
 }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const handleYesClick = (value, id, questionId) => {
+  const handleYesClick = (value, id, questionId, questionType) => {
     if (value === "Даня" || value === "Галя") {
       toAsk.push(value);
       setCurrentQuestion(currentQuestion + 100);
@@ -52,7 +52,7 @@ export function Ques2({
         onAnswer(id);
       }
     }
-    lastAnswer(questionId);
+    lastAnswer(questionId, questionType);
   };
 
   const renderQuestion = () => {
@@ -88,7 +88,7 @@ export function Ques2({
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1, null, question2.id)}
+                onClick={() => handleYesClick(1, null, question2.id, question2.type)}
                 name={question2.id.toString()}
                 value="Yes"
               />
@@ -97,7 +97,7 @@ export function Ques2({
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(8, null, question2.id)}
+                onClick={() => handleYesClick(8, null, question2.id, question2.type)}
                 name={question2.id.toString()}
                 value="Skip"
               />

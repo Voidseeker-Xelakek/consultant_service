@@ -6,7 +6,7 @@ export default function PreviousQuestions({ allQuestions, prevQuestions }) {
       <h1>Анкета</h1>
       {allQuestions.map((el, i) => (
         <div key={i} className="questions">
-          {prevQuestions.includes(el.id) && (
+          {prevQuestions.includes([el.id, el.type]) && (
             <div className="questions-item">
               <span className="questions-text">{el.text}</span>
             </div>
