@@ -12,6 +12,7 @@ export default function Quiz() {
         <input type="radio" name="myRadio" value="No" />
         Вторичка
       </label>
+      {/*
       <p>Выберите, что именно хотите проверить:</p>
       <label>
         <input type="radio" name="myRadio" value="No" />
@@ -21,6 +22,7 @@ export default function Quiz() {
         <input type="radio" name="myRadio" value="No" />
         Проверка недвижимости
       </label>
+  */}
     </form>
   );
 }
