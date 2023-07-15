@@ -68,7 +68,7 @@ footer {
 
 .question {
   margin-top: 30px;
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .question input {
@@ -168,21 +168,22 @@ footer {
 }
 
 .description {
-  margin-left: 15px;
+  margin-left: 30px;
   font-size: 20px;
 }
 
 .instruction h1 {
   margin: 15px;
+  margin-left: 30px;
 }
 
 .instruction p {
-  margin: 15px;
+  margin: 30px;
   font-size: 20px;
 }
 
 .instruction li {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .questions-item span {
