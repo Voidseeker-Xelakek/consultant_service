@@ -11,7 +11,7 @@ export default function Header() {
         <span className="name" style={{ fontSize: '50px' }}>Недвижимость без риска</span>
       </div>
       <div className="right-section" style={{ display: 'flex', alignItems: 'center' }}>
-        <li onClick={openCalculatorWindow} style={{ marginRight: '10px' }}>Калькулятор</li>
+        <li onClick={openCalculatorWindow} style={{ marginRight: '10px', cursor: 'pointer' }}>Калькулятор</li>
         <li>Кабинет</li>
       </div>
     </header>
