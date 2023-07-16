@@ -28,14 +28,28 @@ const seondMinorIndexDict = {
   8: [36, 32],
 };
 
-export function Question({ questionsList, onAnswer, recomendations, indexes }) {
+let toAsk = [];
+
+export function Question({ questionsList, onAnswer, lastAnswer, recomendations, indexes }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  const handleYesClick = (value, id) => {
-    setCurrentQuestion(currentQuestion + value);
-    if (id) {
-      onAnswer(id);
+  const handleYesClick = (
+    value,
+    id,
+    questionId,
+    questionType,
+    questionAnswer
+  ) => {
+    if (value === "Даня" || value === "Галя") {
+      toAsk.push(value);
+      setCurrentQuestion(currentQuestion + 100);
+    } else {
+      setCurrentQuestion(currentQuestion + value);
+      if (id) {
+        onAnswer(id);
+      }
     }
+    lastAnswer(questionId, questionType, questionAnswer);
   };
 
   const renderQuestion = () => {
@@ -58,7 +72,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question.id, question.type, " Да")}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -67,7 +81,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(19, 24)}
+                onClick={() => handleYesClick(19, 24, question.id, question.type, " Нет")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -76,7 +90,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(19, 24)}
+                onClick={() => handleYesClick(19, 24, question.id, question.type, " Пропустить")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -94,7 +108,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question.id, question.type, " Право собственности")}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -103,7 +117,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(100, 37)}
+                onClick={() => handleYesClick(100, 37, question.id, question.type, " Право бессрочного пользования")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -112,7 +126,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(5)}
+                onClick={() => handleYesClick(5, null, question.id, question.type, " Право аренды")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -121,7 +135,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(100, 25)}
+                onClick={() => handleYesClick(100, 25, question.id, question.type, " Данная информация отсутствует")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -130,7 +144,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(100, 26)}
+                onClick={() => handleYesClick(100, 26, question.id, question.type, " Пропустить")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -148,7 +162,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question.id, question.type, " Да")}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -157,7 +171,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1, 5)}
+                onClick={() => handleYesClick(1, 5, question.id, question.type, " Нет")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -166,7 +180,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1, 4)}
+                onClick={() => handleYesClick(1, 4, question.id, question.type, " Пропустить")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -184,7 +198,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question.id, question.type, " Да")}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -194,7 +208,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
               <input
                 type="radio"
                 onClick={() =>
-                  handleYesClick(1, onAnswer(mediumIndexDict[question.id][0]))
+                  handleYesClick(1, onAnswer(mediumIndexDict[question.id][0]), question.id, question.type, " Нет")
                 }
                 name={question.id.toString()}
                 value="Skip"
@@ -204,7 +218,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question.id, question.type, " Данные объекты отсутствуют")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -214,7 +228,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
               <input
                 type="radio"
                 onClick={() =>
-                  handleYesClick(1, onAnswer(mediumIndexDict[question.id][1]))
+                  handleYesClick(1, onAnswer(mediumIndexDict[question.id][1]), question.id, question.type, " Пропустить")
                 }
                 name={question.id.toString()}
                 value="Skip"
@@ -232,7 +246,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question.id, question.type, " Да")}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -242,7 +256,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
               <input
                 type="radio"
                 onClick={() =>
-                  handleYesClick(8, onAnswer(mediumIndexDict[question.id][0]))
+                  handleYesClick(8, onAnswer(mediumIndexDict[question.id][0]), question.id, question.type, " Нет")
                 }
                 name={question.id.toString()}
                 value="Skip"
@@ -253,7 +267,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
               <input
                 type="radio"
                 onClick={() =>
-                  handleYesClick(8, onAnswer(mediumIndexDict[question.id][1]))
+                  handleYesClick(8, onAnswer(mediumIndexDict[question.id][1]), question.id, question.type, " Пропустить")
                 }
                 name={question.id.toString()}
                 value="Skip"
@@ -275,7 +289,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question.id, question.type, " Да")}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -285,7 +299,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
               <input
                 type="radio"
                 onClick={() =>
-                  handleYesClick(1, onAnswer(mediumIndexDict[question.id][0]))
+                  handleYesClick(1, onAnswer(mediumIndexDict[question.id][0]), question.id, question.type, " Нет")
                 }
                 name={question.id.toString()}
                 value="Skip"
@@ -296,7 +310,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
               <input
                 type="radio"
                 onClick={() =>
-                  handleYesClick(1, onAnswer(mediumIndexDict[question.id][1]))
+                  handleYesClick(1, onAnswer(mediumIndexDict[question.id][1]), question.id, question.type, " Пропустить")
                 }
                 name={question.id.toString()}
                 value="Skip"
@@ -321,7 +335,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question.id, question.type, " Да")}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -330,7 +344,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(8 - question.id, onAnswer(5))}
+                onClick={() => handleYesClick(8 - question.id, onAnswer(5), question.id, question.type, " Нет")}
                 name={question.id.toString()}
                 value="No"
               />
@@ -339,7 +353,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(8 - question.id, onAnswer(4))}
+                onClick={() => handleYesClick(8 - question.id, onAnswer(4), question.id, question.type, " Пропустить")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -361,7 +375,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question.id, question.type, " Да")}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -370,7 +384,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(2)}
+                onClick={() => handleYesClick(2, null, question.id, question.type, " Нет")}
                 name={question.id.toString()}
                 value="No"
               />
@@ -379,7 +393,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(2, 4)}
+                onClick={() => handleYesClick(2, 4, question.id, question.type, " Пропустить")}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -401,7 +415,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(100)}
+                onClick={() => handleYesClick(100, null, question.id, question.type, " Да")}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -413,7 +427,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
                 onClick={() =>
                   handleYesClick(
                     100,
-                    onAnswer(seondMinorIndexDict[question.id][0])
+                    onAnswer(seondMinorIndexDict[question.id][0]), question.id, question.type, " Нет"
                   )
                 }
                 name={question.id.toString()}
@@ -427,7 +441,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
                 onClick={() =>
                   handleYesClick(
                     100,
-                    onAnswer(seondMinorIndexDict[question.id][1])
+                    onAnswer(seondMinorIndexDict[question.id][1]), question.id, question.type, " Пропустить"
                   )
                 }
                 name={question.id.toString()}
@@ -451,7 +465,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(1)}
+                onClick={() => handleYesClick(1, null, question.id, question.type, " Да")}
                 name={question.id.toString()}
                 value="Yes"
               />
@@ -463,7 +477,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
                 onClick={() =>
                   handleYesClick(
                     1,
-                    onAnswer(seondMinorIndexDict[question.id][0])
+                    onAnswer(seondMinorIndexDict[question.id][0]), question.id, question.type, " Нет"
                   )
                 }
                 name={question.id.toString()}
@@ -477,7 +491,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
                 onClick={() =>
                   handleYesClick(
                     1,
-                    onAnswer(seondMinorIndexDict[question.id][1])
+                    onAnswer(seondMinorIndexDict[question.id][1]), question.id, question.type, " Пропустить"
                   )
                 }
                 name={question.id.toString()}
