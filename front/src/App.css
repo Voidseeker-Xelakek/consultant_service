@@ -3,7 +3,6 @@
 }
 
 .App-header {
-  background-color: #df8c0f;
   min-height: 10vh;
   display: flex;
   flex-direction: row;
@@ -13,13 +12,13 @@
   color: black;
 }
 
-.left-section{
+.left-section {
   flex: 0.3; /* Равномерное распределение пространства */
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.center-section{
+.center-section {
   flex: 1.7; /* Равномерное распределение пространства */
   display: flex;
   align-items: center;
@@ -54,7 +53,7 @@
 }
 
 .App-link {
-  color: #5953ad, #df8c0f; 
+  color: #5953ad, #df8c0f;
 }
 /*  #ffdb00 #ab7d00 #5d5d5d #b15b12 #964b0a #773a06 #876c4a #ead2a0*/
 
@@ -66,4 +65,3 @@
     transform: rotate(360deg);
   }
 }
-

@@ -18,35 +18,35 @@ body {
 
 .name {
   font-weight: 600;
-  font-size: 30px;
-  color: white;
+  font-size: 1.1em;
+  color: black;
 }
 
 .center-section {
-  background-color: #67249d;
+  background-color: #d0e0cc;
   height: 100px;
 }
 
 .right-section {
-  background-color: orange;
+  background-color: #d0e0cc;
   height: 100px;
   text-align: center;
   list-style-type: none;
 }
 
-.right-section li {
+.right-section div {
   margin-left: 60px;
   font-weight: 600;
 }
 
-.right-section li:hover {
+.right-section div:hover {
   cursor: ч;
   text-decoration: underline;
 }
 
-/* .left-section {
-  background-image: url("img/logo.png");
-} */
+.left-section {
+  background-color: #d0e0cc;
+}
 
 footer {
   text-align: right;
@@ -56,13 +56,16 @@ footer {
 
 .quiz {
   text-align: center;
-  font-weight: bold;
+  font-weight: 400;
   margin-left: 30px;
   font-size: 20px;
 }
+.quiz label {
+  display: block;
+}
 
-.quiz input {
-  margin-bottom: 30px;
+.quizRadio {
+  margin-top: 15px;
   margin-left: 30px;
 }
 
@@ -168,21 +171,61 @@ footer {
 }
 
 .description {
-  margin-left: 30px;
+  padding-left: 15em;
+  background-color: #e7ede6;
+}
+
+.description p {
   font-size: 20px;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-right: auto;
+  width: 67em;
 }
 
-.instruction h1 {
-  margin: 15px;
-  margin-left: 30px;
+.descriprionButton {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 25px;
+  margin: 0 15px 15px 0;
+  outline: none;
+  border: 1px solid #8da68d;
+  border-radius: 50px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 1em;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  background-color: #8da68d;
+  width: 15em;
+  box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  transition: box-shadow 0.2s;
+}
+.descriprionButton:focus-visible {
+  border: 1px solid #4c51f9;
+  outline: none;
+}
+.bdescriprionButtontn:hover {
+  transition: all 0.2s;
+  box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+}
+.descriprionButton:active {
+  background-color: #808080;
 }
 
-.instruction p {
-  margin: 30px;
-  font-size: 20px;
+.instruction {
+  margin: 2em 0 2em 0;
+  font-size: 1.3em;
+  padding-left: 2em;
 }
 
-.instruction li {
+.instruction ul {
   margin-top: 30px;
 }
 
