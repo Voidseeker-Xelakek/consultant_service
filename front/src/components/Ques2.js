@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Question from "./Question";
 import Ques3 from "./Ques3";
 
@@ -40,8 +40,16 @@ export function Ques2({
   lastAnswer,
   recomendations,
   indexes,
+  skipAll
 }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  useEffect(() => {
+    if (skipAll) {
+      setCurrentQuestion(questionsList.length + 100);
+    }
+  }, [skipAll]);
+
   const handleYesClick = (
     value,
     id,
@@ -49,7 +57,10 @@ export function Ques2({
     questionType,
     questionAnswer
   ) => {
-    if (value === "Даня" || value === "Галя") {
+    if (skipAll) {
+      setCurrentQuestion(questionsList.length + 100); // Пропустить все вопросы
+    }
+    else if (value === "Даня" || value === "Галя") {
       toAsk.push(value);
       setCurrentQuestion(currentQuestion + 100);
     } else {

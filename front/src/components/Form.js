@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Ques2 from "./Ques2";
 
 export function Form({
@@ -8,6 +8,12 @@ export function Form({
   recomendations,
   indexes,
 }) {
+
+  const [skipAll, setSkipAll] = useState(false);
+
+  const handleSkipAll = () => {
+    setSkipAll(true);
+  };
   return (
     <main className="form-container">
       <div>
@@ -17,10 +23,15 @@ export function Form({
           lastAnswer={lastAnswer}
           recomendations={recomendations}
           indexes={indexes}
+          skipAll={skipAll}
         />
+        {!skipAll && (
+          <button onClick={handleSkipAll}>Пропустить все вопросы</button>
+        )}
       </div>
     </main>
   );
+  
 }
 
 export default Form;

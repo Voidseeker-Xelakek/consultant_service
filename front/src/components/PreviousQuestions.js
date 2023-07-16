@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function PreviousQuestions({ allQuestions, prevQuestions }) {
   const questions = [
@@ -6,31 +6,54 @@ export default function PreviousQuestions({ allQuestions, prevQuestions }) {
     ...allQuestions[0],
     ...allQuestions[2],
   ];
+
+  const [showPrevious, setShowPrevious] = useState(false);
+  const handleShowPrevious = () => {
+    setShowPrevious(true);
+  };
+
+  const handleHidePrevious = () => {
+    setShowPrevious(false);
+  };
+  
+
   return (
     <div className="form">
       <h1>Анкета</h1>
       {questions.map((el, i) => (
         <div key={i} className="questions">
-          {prevQuestions.some(
-            (item) =>
-              item[0] === el.id && item[1] === el.type && item[3] === el.person
-          ) && (
-            <div className="questions-item">
-              <span className="questions-text">{el.text}</span>
-              <span className="questions-answer">
-                {
-                  prevQuestions.find(
-                    (item) =>
-                      item[0] === el.id &&
-                      item[1] === el.type &&
-                      item[3] === el.person
-                  )[2]
-                }
-              </span>
-            </div>
-          )}
+          {showPrevious &&
+            prevQuestions.some(
+              (item) =>
+                item[0] === el.id &&
+                item[1] === el.type &&
+                item[3] === el.person
+            ) && (
+              <div className="questions-item">
+                <span className="questions-text">{el.text}</span>
+                <span className="questions-answer">
+                  {
+                    prevQuestions.find(
+                      (item) =>
+                        item[0] === el.id &&
+                        item[1] === el.type &&
+                        item[3] === el.person
+                    )[2]
+                  }
+                </span>
+              </div>
+            )}
         </div>
       ))}
-    </div>
-  );
+      {showPrevious ? (
+      <button className="button" onClick={handleHidePrevious}>
+        Убрать предыдущие вопросы
+      </button>
+        ) : (
+      <button className="button" onClick={handleShowPrevious}>
+        Вывести предыдущие вопросы
+      </button>
+      )}</div>
+  );  
+  
 }
