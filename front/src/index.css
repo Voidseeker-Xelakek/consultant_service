@@ -240,3 +240,29 @@ footer {
 .recommendation-item span {
   font-size: 1.5em;
 }
+
+.instruction button {
+  font-size: 18px; 
+  padding: 10px 20px; 
+  background-color: #f0f0f0;
+  color: #333; 
+  border: none; 
+  cursor: pointer; 
+}
+
+.instruction button:hover {
+  background-color: #ccc;
+}
+
+.instruction {
+  margin-top: 20px; 
+  margin-left: 20px;
+}
+
+.description {
+  margin-right: 20px;
+}
+
+footer {
+  margin-right: 20px;
+}

@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Instruction() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleInstructions = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="instruction">
       <p>
@@ -26,3 +32,4 @@ export default function Instruction() {
     </div>
   );
 }
+
