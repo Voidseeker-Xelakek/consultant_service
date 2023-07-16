@@ -11,7 +11,6 @@ export default function Description() {
         поможет Вам принять взвешенное решение и обезопасит от заключения
         невыгодной или подозрительной сделки. {""}
       </p>
-      <button className="descriprionButton">Как пользоваться?</button>
     </div>
   );
 }
