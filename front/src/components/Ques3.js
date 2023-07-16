@@ -4,11 +4,11 @@ import Recomendations from "./Recomendations";
 export let recsIndexes = [];
 
 const mediumIndexDict3 = {
-  1: [2, 1],
-  2: [3, 1],
-  3: [4, 1],
-  4: [5, 1],
-  5: [6, 6],
+  1: [54, 53],
+  2: [55, 53],
+  3: [56, 53],
+  4: [57, 53],
+  5: [58, 58],
 };
 
 export function Question({ questionsList, onAnswer, recomendations, indexes }) {
@@ -45,7 +45,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(100, 1)}
+                onClick={() => handleYesClick(100, 53)}
                 name={question3.id.toString()}
                 value="Yes"
               />
@@ -110,7 +110,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => handleYesClick(100, 6)}
+                onClick={() => handleYesClick(100, 58)}
                 name={question3.id.toString()}
                 value="Yes"
               />
