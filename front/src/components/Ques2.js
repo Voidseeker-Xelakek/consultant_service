@@ -58,18 +58,18 @@ export function Ques2({
         onAnswer(id);
       }
     }
-    lastAnswer(questionId, questionType, questionAnswer);
+    lastAnswer(questionId, questionType, questionAnswer, 2);
   };
 
   const renderQuestion = () => {
     const questions2 = questionsList[1];
     const question2 = questions2[currentQuestion];
     if (!question2 && toAsk.includes("Даня")) {
-      console.log("lel");
       return (
         <Question
           questionsList={questionsList[0]}
           onAnswer={onAnswer}
+          lastAnswer={lastAnswer}
           recomendations={recomendations}
           indexes={indexes}
         />
@@ -79,6 +79,7 @@ export function Ques2({
         <Ques3
           questionsList={questionsList[2]}
           onAnswer={onAnswer}
+          lastAnswer={lastAnswer}
           recomendations={recomendations}
           indexes={indexes}
         />
