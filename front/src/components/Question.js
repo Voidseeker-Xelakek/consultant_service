@@ -125,7 +125,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
                 name={question.id.toString()}
                 value="Skip"
               />
-              Данная информация отсутствhandleYesClickует
+              Данная информация отсутствует
             </label>
             <label>
               <input
