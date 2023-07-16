@@ -103,7 +103,7 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(37)}
+                onClick={() => handleYesClick(100, 37)}
                 name={question.id.toString()}
                 value="Skip"
               />
@@ -121,16 +121,16 @@ export function Question({ questionsList, onAnswer, recomendations, indexes }) {
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(25)}
+                onClick={() => handleYesClick(100, 25)}
                 name={question.id.toString()}
                 value="Skip"
               />
-              Данная информация отсутствует
+              Данная информация отсутствhandleYesClickует
             </label>
             <label>
               <input
                 type="radio"
-                onClick={() => onAnswer(26)}
+                onClick={() => handleYesClick(100, 26)}
                 name={question.id.toString()}
                 value="Skip"
               />
