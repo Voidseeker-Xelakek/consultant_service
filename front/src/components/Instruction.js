@@ -8,7 +8,7 @@ export default function Instruction() {
   };
 
   return (
-    <div className="instuction">
+    <div className="instruction">
       <button className="instructionButton" onClick={toggleInstructions}>
         Как пользоваться?
       </button>
