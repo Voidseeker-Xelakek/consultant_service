@@ -32,7 +32,9 @@ export function Form({
       <div>
         {!skipAll && !returnAll && (
           <button onClick={handleSkipAll}>
-            {showRecommendations ? "Вернуться к вопросам" : "Пропустить все вопросы"}
+            {showRecommendations
+              ? "Вернуться к вопросам"
+              : "Пропустить все вопросы"}
           </button>
         )}
         {showRecommendations && (
@@ -58,6 +60,3 @@ export function Form({
 }
 
 export default Form;
-
-
-

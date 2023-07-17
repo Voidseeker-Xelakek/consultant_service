@@ -16,11 +16,11 @@ export default function Header() {
       <div className="center-section">
         <span className="name">Надежный дом</span>
       </div>
-      <div className="calculator">
+      {/* <div className="calculator">
         <btn className="calculatorBtn" onClick={openCalculatorWindow}>
           Калькулятор выгоды
         </btn>
-      </div>
+      </div> */}
     </header>
   );
 }
