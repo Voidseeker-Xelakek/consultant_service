@@ -70,6 +70,7 @@ body {
 }
 
 footer {
+  padding-bottom: 20px;
   text-align: center;
   margin-top: 100px;
   font-weight: 600;
@@ -96,10 +97,6 @@ footer {
   margin-left: 30px;
 }
 
-.question input {
-  float: left;
-  margin-right: 10px;
-}
 .question label {
   display: block;
   overflow: hidden;
@@ -139,6 +136,7 @@ footer {
 .recomendation div {
   margin-bottom: 10px;
   margin-top: 30px;
+  font-size: 15px;
 }
 
 .recomendation button {
@@ -226,7 +224,7 @@ footer {
 .instruction p {
   display: flex;
   padding-top: 1em;
-  font-size: 1.5em;
+  font-size: 150%;
   margin-right: auto;
   margin-left: auto;
   width: 80%;
@@ -255,8 +253,7 @@ footer {
 .instructionButton {
   display: inline-block;
   box-sizing: border-box;
-  margin-left: 13em;
-  margin-top: 2em;
+  margin-left: 10%;
   outline: none;
   border: 1px solid #8da68d;
   border-radius: 50px;
@@ -322,10 +319,6 @@ footer {
   font-size: 1.5em;
   padding: 5px 20px;
   background-color: #f5f5f5;
-}
-
-.addition_container {
-  font-size: 1.3em;
 }
 
 .prevButtonCont {

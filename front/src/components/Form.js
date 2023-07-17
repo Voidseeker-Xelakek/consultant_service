@@ -31,7 +31,7 @@ export function Form({
     <main className="form-container">
       <div>
         {!skipAll && !returnAll && (
-          <button onClick={handleSkipAll}>
+          <button className="skipButton" onClick={handleSkipAll}>
             {showRecommendations
               ? "Вернуться к вопросам"
               : "Пропустить все вопросы"}
