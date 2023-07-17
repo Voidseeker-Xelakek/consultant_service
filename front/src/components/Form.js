@@ -50,7 +50,7 @@ export function Form({
           returnAll={returnAll}
         />
         {skipAll && !returnAll && (
-          <button onClick={handleReturnAll}>
+          <button className="skipButton" onClick={handleReturnAll}>
             Вернуться к предыдущим вопросам
           </button>
         )}
