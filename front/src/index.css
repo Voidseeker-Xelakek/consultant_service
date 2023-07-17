@@ -13,6 +13,7 @@ body {
 
 .wrapper {
   width: 100%;
+  background-color: #e7ede6;
   font-family: "Mulish", sans-serif;
 }
 
@@ -157,7 +158,6 @@ footer {
 }
 
 .prevForm {
-  margin-left: 3em;
   background-color: #e7ede6;
   border: 3px solid #8da68d;
   margin: 3em 10em 0em 10em;
@@ -187,10 +187,6 @@ footer {
   padding: 15px;
 }
 
-.form {
-  margin-left: 25px;
-}
-
 .recommendation-item {
   border: 3px solid grey;
   padding: 10px;
@@ -203,7 +199,7 @@ footer {
 
 .description {
   display: flex;
-  background-color: #e7ede6;
+  background-color: #dedfdd;
 }
 
 .description p {
@@ -217,7 +213,7 @@ footer {
 
 .instruction {
   display: block;
-  background-color: #e7ede6;
+  background-color: #dedfdd;
   font-size: 1em;
   padding-bottom: 2em;
 }

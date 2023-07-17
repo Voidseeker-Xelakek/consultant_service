@@ -986,7 +986,7 @@ function App() {
       <Header />
       <Description />
       <Instruction />
-      <Quiz />
+      {/* <Quiz /> */}
       <PreviousQuestions
         allQuestions={[questions1, questions2, questions3]}
         prevQuestions={prevQuestions}
