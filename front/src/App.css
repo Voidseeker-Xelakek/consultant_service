@@ -3,9 +3,7 @@
 }
 
 .App-header {
-  min-height: 10vh;
   display: flex;
-  display: inline;
   flex-direction: row;
   align-items: center;
   justify-content: space-between; /* Расстояние между секциями */
@@ -23,6 +21,7 @@
 .center-section {
   flex: 1.7; /* Равномерное распределение пространства */
   display: flex;
+  padding-left: 20%;
   align-items: center;
   justify-content: center;
 }
