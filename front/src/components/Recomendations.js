@@ -18,22 +18,18 @@ export default function Recomendations({ recomendations, indexes }) {
         const formattedLongText = el.longText && replaceLinks(el.longText);
 
         const formattedShortTextWithLink = el.shortText && (
-          <span
-            dangerouslySetInnerHTML={{ __html: formattedShortText }}
-          ></span>
+          <span dangerouslySetInnerHTML={{ __html: formattedShortText }}></span>
         );
 
         const formattedLongTextWithLink = el.longText && (
-          <span
-            dangerouslySetInnerHTML={{ __html: formattedLongText }}
-          ></span>
+          <span dangerouslySetInnerHTML={{ __html: formattedLongText }}></span>
         );
 
         return (
           <div key={i} className="shortRecomandation">
             <div className="recommendation-item">
               <span className="recommendation-id">
-                {recommendationNumber++}.
+                {recommendationNumber++})
               </span>{" "}
               <span className="recommendation-text">
                 {formattedShortTextWithLink || el.shortText}
@@ -60,7 +56,3 @@ function replaceLinks(text) {
       `<a href="${match}" target="_blank" rel="noopener noreferrer">${match}</a>`
   );
 }
-
-
-
-
