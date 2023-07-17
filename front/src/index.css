@@ -14,16 +14,33 @@ body {
 
 .wrapper {
   width: 100%;
+  font-family: "Mulish", sans-serif;
+}
+
+.calculator {
+  font-size: 1em;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.calculatorBtn {
+  padding: 0.8em 0.5em;
+  font-size: 20px;
+  cursor: pointer;
+  width: 100%;
+  border: 3px solid #222;
 }
 
 .name {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.1em;
   color: black;
 }
 
 .center-section {
   background-color: #d0e0cc;
+  font-weight: 300;
   height: 100px;
 }
 
@@ -171,23 +188,59 @@ footer {
 }
 
 .description {
-  padding-left: 15em;
+  display: flex;
   background-color: #e7ede6;
 }
 
 .description p {
-  font-size: 20px;
+  font-size: 1.4em;
   padding-top: 2em;
   padding-bottom: 2em;
   margin-right: auto;
+  margin-left: auto;
   width: 67em;
 }
 
-.descriprionButton {
+.instuction {
+  /* display: flex; */
+  display: block;
+  background-color: #e7ede6;
+  font-size: 1em;
+  padding-bottom: 2em;
+}
+
+.instuction p {
+  padding-top: 1em;
+  font-size: 1.5em;
+  padding-left: 5em;
+  margin-right: auto;
+  margin-left: auto;
+  width: 67em;
+}
+
+.instuction ul {
+  padding-top: 1em;
+  font-size: 1.5em;
+  padding-left: 5em;
+  margin-right: auto;
+  margin-left: auto;
+  width: 67em;
+}
+
+.instuction li {
+  list-style: none;
+  padding-left: 2em;
+  padding-top: 1em;
+  font-size: 1em;
+  margin-right: auto;
+  margin-left: auto;
+  width: 67em;
+}
+
+.instructionButton {
   display: inline-block;
   box-sizing: border-box;
-  padding: 0 25px;
-  margin: 0 15px 15px 0;
+  margin-left: 13em;
   outline: none;
   border: 1px solid #8da68d;
   border-radius: 50px;
@@ -207,15 +260,15 @@ footer {
   vertical-align: top;
   transition: box-shadow 0.2s;
 }
-.descriprionButton:focus-visible {
+.instructionButton:focus-visible {
   border: 1px solid #4c51f9;
   outline: none;
 }
-.bdescriprionButtontn:hover {
+.instructionButtontn:hover {
   transition: all 0.2s;
   box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
 }
-.descriprionButton:active {
+.instructionButton:active {
   background-color: #808080;
 }
 
@@ -259,18 +312,13 @@ footer {
   margin-left: 20px;
 }
 
-.description {
-  margin-right: 20px;
-}
-
 footer {
   margin-right: 20px;
 }
 
-.button {
+.prevButton {
   font-size: 1.2rem;
   padding: 10px 20px;
   background-color: #f5f5f5;
   color: #333;
 }
-
