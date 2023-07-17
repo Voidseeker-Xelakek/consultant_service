@@ -17,7 +17,7 @@ export default function PreviousQuestions({ allQuestions, prevQuestions }) {
   };
 
   return (
-    <div className="form">
+    <div className="prevForm">
       <h1>Анкета</h1>
       {questions.map((el, i) => (
         <div key={i} className="questions">
@@ -44,15 +44,18 @@ export default function PreviousQuestions({ allQuestions, prevQuestions }) {
             )}
         </div>
       ))}
-      {showPrevious ? (
-        <button className="prevButton" onClick={handleHidePrevious}>
-          Убрать предыдущие вопросы
-        </button>
-      ) : (
-        <button className="prevButton" onClick={handleShowPrevious}>
-          Вывести предыдущие вопросы
-        </button>
-      )}
+      <div className="prevButtonCont">
+        {" "}
+        {showPrevious ? (
+          <button className="prevButton" onClick={handleHidePrevious}>
+            Убрать предыдущие вопросы
+          </button>
+        ) : (
+          <button className="prevButton" onClick={handleShowPrevious}>
+            Вывести предыдущие вопросы
+          </button>
+        )}
+      </div>
     </div>
   );
 }

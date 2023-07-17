@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Addition({ addition }) {
   return (
-    <div className="default-container">
+    <div className="addition_container">
       <p>{addition}</p>
     </div>
   );
