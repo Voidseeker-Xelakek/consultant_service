@@ -8,7 +8,6 @@
 body {
   background: #ffffff;
   color: #222;
-  font-family: "Aerial", sans-serif;
   font-weight: 300;
 }
 
@@ -129,7 +128,6 @@ footer {
 
 .recomendation {
   padding: 20px;
-  font-family: Arial, sans-serif;
 }
 
 .recomendation div {
@@ -156,9 +154,27 @@ footer {
   text-decoration: underline;
 }
 
+.prevForm {
+  margin-left: 3em;
+  background-color: #e7ede6;
+  border: 3px solid #8da68d;
+  margin: 3em 10em 0em 10em;
+  padding: 1em;
+  border-bottom: none;
+}
+
+.prevForm h1 {
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
 .form-container {
-  padding: 15px;
-  font-family: Arial, sans-serif;
+  background-color: #e7ede6;
+  border: 3px solid #8da68d;
+  border-top: none;
+  margin: 0 10em 3em 10em;
+  padding: 1em;
 }
 
 .form-container div {
@@ -174,13 +190,9 @@ footer {
 }
 
 .recommendation-item {
-  border: 3px solid #67249d;
+  border: 3px solid grey;
   padding: 10px;
   margin-bottom: 10px;
-}
-
-.recommendation-id {
-  font-weight: bold;
 }
 
 footer {
@@ -282,16 +294,30 @@ footer {
   margin-top: 30px;
 }
 
+.question {
+  border: 2px solid grey;
+  border-radius: 10px;
+  margin: 1em;
+  padding: 1em;
+}
+
+.questions-item {
+  border: 2px solid grey;
+  border-radius: 10px;
+  margin: 1em;
+  padding: 1em;
+}
+
 .questions-item span {
   font-size: 1.6em;
 }
 
 .questions-answer {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .recommendation-item span {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .instruction button {
@@ -317,8 +343,49 @@ footer {
 }
 
 .prevButton {
-  font-size: 1.2rem;
-  padding: 10px 20px;
+  font-size: 1.5em;
+  padding: 5px 20px;
   background-color: #f5f5f5;
-  color: #333;
+}
+
+.addition_container {
+  font-size: 1.3em;
+}
+
+.prevButtonCont {
+  text-align: right;
+}
+
+.prevButton {
+  display: inline-block;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #8da68d;
+  border-radius: 50px;
+  height: 3em;
+  line-height: 46px;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  background-color: #8da68d;
+  width: 25em;
+  box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  transition: box-shadow 0.2s;
+}
+.prevButton:focus-visible {
+  border: 1px solid #4c51f9;
+  outline: none;
+}
+.prevButton:hover {
+  transition: all 0.2s;
+  box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+}
+.prevButton:active {
+  background-color: #808080;
 }
