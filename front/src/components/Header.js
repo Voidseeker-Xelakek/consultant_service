@@ -6,24 +6,20 @@ export default function Header() {
 
   return (
     <header className="App-header">
-      <div className="left-section">
+      {/* <div className="left-section">
         <img
           src={domPNG}
           alt="DOM"
           style={{ width: "100px", height: "100px" }}
         />
-      </div>
+      </div> */}
       <div className="center-section">
         <span className="name">Недвижимость без риска</span>
       </div>
-      <div
-        className="right-section"
-        style={{ display: "flex", alignItems: "center" }}
-      >
-        <div onClick={openCalculatorWindow} style={{ marginRight: "10px" }}>
-          Калькулятор
-        </div>
-        <div>Кабинет</div>
+      <div className="calculator">
+        <btn className="calculatorBtn" onClick={openCalculatorWindow}>
+          Калькулятор рисков
+        </btn>
       </div>
     </header>
   );
