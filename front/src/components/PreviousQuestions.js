@@ -15,7 +15,6 @@ export default function PreviousQuestions({ allQuestions, prevQuestions }) {
   const handleHidePrevious = () => {
     setShowPrevious(false);
   };
-  
 
   return (
     <div className="form">
@@ -46,14 +45,14 @@ export default function PreviousQuestions({ allQuestions, prevQuestions }) {
         </div>
       ))}
       {showPrevious ? (
-      <button className="button" onClick={handleHidePrevious}>
-        Убрать предыдущие вопросы
-      </button>
-        ) : (
-      <button className="button" onClick={handleShowPrevious}>
-        Вывести предыдущие вопросы
-      </button>
-      )}</div>
-  );  
-  
+        <button className="prevButton" onClick={handleHidePrevious}>
+          Убрать предыдущие вопросы
+        </button>
+      ) : (
+        <button className="prevButton" onClick={handleShowPrevious}>
+          Вывести предыдущие вопросы
+        </button>
+      )}
+    </div>
+  );
 }

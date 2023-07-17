@@ -40,15 +40,19 @@ export function Ques2({
   lastAnswer,
   recomendations,
   indexes,
-  skipAll
+  skipAll,
+  returnAll
 }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   useEffect(() => {
     if (skipAll) {
-      setCurrentQuestion(questionsList.length + 100);
+      setCurrentQuestion(questionsList.length + 100); // Пропустить все вопросы
     }
-  }, [skipAll]);
+    if (returnAll) {
+      setCurrentQuestion(0); // Вернуться к первому вопросу
+    }
+  }, [skipAll, returnAll]);
 
   const handleYesClick = (
     value,

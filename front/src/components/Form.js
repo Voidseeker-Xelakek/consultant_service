@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Ques2 from "./Ques2";
+import Recomendations from "./Recomendations";
 
 export function Form({
   questions,
@@ -8,15 +9,35 @@ export function Form({
   recomendations,
   indexes,
 }) {
-
   const [skipAll, setSkipAll] = useState(false);
+  const [showRecommendations, setShowRecommendations] = useState(false);
+  const [returnAll, setReturnAll] = useState(false);
 
   const handleSkipAll = () => {
-    setSkipAll(true);
+    if (showRecommendations) {
+      setShowRecommendations(false);
+      setReturnAll(false);
+    } else {
+      setSkipAll(true);
+      setShowRecommendations(true);
+    }
   };
+
+  const handleReturnAll = () => {
+    setReturnAll(true);
+  };
+
   return (
     <main className="form-container">
       <div>
+        {!skipAll && !returnAll && (
+          <button onClick={handleSkipAll}>
+            {showRecommendations ? "Вернуться к вопросам" : "Пропустить все вопросы"}
+          </button>
+        )}
+        {showRecommendations && (
+          <Recomendations recomendations={recomendations} indexes={indexes} />
+        )}
         <Ques2
           questionsList={questions}
           onAnswer={onAnswer}
@@ -24,14 +45,19 @@ export function Form({
           recomendations={recomendations}
           indexes={indexes}
           skipAll={skipAll}
+          returnAll={returnAll}
         />
-        {!skipAll && (
-          <button onClick={handleSkipAll}>Пропустить все вопросы</button>
+        {skipAll && !returnAll && (
+          <button onClick={handleReturnAll}>
+            Вернуться к предыдущим вопросам
+          </button>
         )}
       </div>
     </main>
   );
-  
 }
 
 export default Form;
+
+
+

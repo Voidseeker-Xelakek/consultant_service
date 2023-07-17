@@ -9,20 +9,19 @@ export default function Instruction() {
 
   return (
     <div className="instuction">
-      <button className="descriprionButton" onClick={toggleInstructions}>
+      <button className="instructionButton" onClick={toggleInstructions}>
         Как пользоваться?
       </button>
       {isOpen && (
         <>
-          <h1>Инструкция</h1>
           <p>
             Алгоритм работы с инструментом достаточно прост. Все, что Вам
             потребуется, это:
           </p>
           <ul>
             1. Выбрать, что Вы хотите проверить:
-            <li>первичное жилье</li>
-            <li>вторичное жилье</li>
+            <li>- первичное жилье</li>
+            <li>- вторичное жилье</li>
           </ul>
           <p>2. Ответить на ряд вопросов в анкете </p>
           <p>3. Дождаться результатов.</p>
@@ -41,4 +40,3 @@ export default function Instruction() {
     </div>
   );
 }
-
