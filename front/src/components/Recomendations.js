@@ -50,9 +50,22 @@ export default function Recomendations({ recomendations, indexes }) {
 }
 
 function replaceLinks(text) {
-  return text.replace(
-    /https?:\/\/[^\s)]+/g,
-    (match) =>
-      `<a href="${match}" target="_blank" rel="noopener noreferrer">${match}</a>`
-  );
+  const linkRegex1 = /наш\.дом\.рф/g;
+  const link1 = '<a href="https://наш.дом.рф/" target="_blank" rel="noopener noreferrer">наш.дом.рф</a>';
+
+  const linkRegex2 = /ч\. 2 ст\. 3\.1 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
+  const link2 = '<a href="https://www.consultant.ru/document/cons_doc_LAW_51038/302aa518a2c33dfc84a296f1d109dfe94e35097c/" target="_blank" rel="noopener noreferrer">ч. 2 ст. 3.1 Закона «Об участии в долевом строительстве» №214-ФЗ</a>';
+
+  let replacedText = text;
+
+  if (linkRegex1.test(replacedText)) {
+    replacedText = replacedText.replace(linkRegex1, link1);
+  }
+
+  if (linkRegex2.test(replacedText)) {
+    replacedText = replacedText.replace(linkRegex2, link2);
+  }
+
+  return replacedText;
 }
+
