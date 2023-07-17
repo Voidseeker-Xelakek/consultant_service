@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
 import domPNG from "../img/dom.png";
+import Calculator from './Calculator';
+
+
 export default function Header() {
   const openCalculatorWindow = () => {
-    window.open("https://example.com/calculator", "_blank"); // Замените ссылку на URL вашего калькулятора
+    window.open('front/src/components/Calculator.js'); 
   };
 
   return (
