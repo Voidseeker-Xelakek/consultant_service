@@ -8,7 +8,6 @@ import Recomendations from "./components/Recomendations";
 import React, { useState } from "react";
 import PreviousQuestions from "./components/PreviousQuestions";
 import "./App.css";
-import {BrowserRouter,Routes,Route,Router} from 'react-router-dom'
 import Calculator from "./components/Calculator";
 
 const questions1 = [
