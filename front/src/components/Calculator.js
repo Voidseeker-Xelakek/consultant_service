@@ -29,7 +29,18 @@ class Calculator extends React.Component{
         }
         else if (value==='C'){output.value='0'}
         else if (value==='='){
-            try{output.value = eval(output.value)}
+            try{
+                let result = eval(output.value)
+                if(result === Infinity || result === -Infinity){
+                    output.value ='Недопустимое значение'
+                    setTimeout(()=>{
+                        output.value ='0'
+                    },1500)
+                }
+                else{
+                    output.value = result
+                }
+            }
             catch{
                 output.value ='Недопустимое значение'
                 setTimeout(()=>{
