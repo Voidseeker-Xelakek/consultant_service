@@ -155,6 +155,15 @@ export function Ques2({
               />
               Нет
             </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question2.id.toString()}
+                value="Back"
+              />
+              Вернуться
+            </label>
           </div>
         </div>
       );
@@ -197,6 +206,15 @@ export function Ques2({
                 value="Skip"
               />
               Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question2.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
@@ -251,6 +269,15 @@ export function Ques2({
               />
               Пропустить
             </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question2.id.toString()}
+                value="Back"
+              />
+              Вернуться
+            </label>
           </div>
         </div>
       );
@@ -286,6 +313,15 @@ export function Ques2({
                 value="Skip"
               />
               Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question2.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
@@ -328,6 +364,15 @@ export function Ques2({
                 value="Skip"
               />
               Нет
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question2.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
@@ -385,6 +430,15 @@ export function Ques2({
                 value="Skip"
               />
               Пропустить
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question2.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
@@ -449,6 +503,15 @@ export function Ques2({
               />
               Пропустить
             </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question2.id.toString()}
+                value="Back"
+              />
+              Вернуться
+            </label>
           </div>
         </div>
       );
@@ -501,6 +564,15 @@ export function Ques2({
                 value="Skip"
               />
               Пропустить
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question2.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
@@ -559,6 +631,15 @@ export function Ques2({
                 value="Skip"
               />
               Пропустить
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question2.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
@@ -622,6 +703,15 @@ export function Ques2({
                 value="Skip"
               />
               Пропустить
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question2.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
