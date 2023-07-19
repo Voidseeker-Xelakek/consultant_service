@@ -19,8 +19,6 @@ body {
 
 .navbar {
   display: flex;
-  position: sticky;
-  width: 20%;
   height: 100px;
 }
 

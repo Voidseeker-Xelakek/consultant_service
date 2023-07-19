@@ -217,6 +217,15 @@ export function Question({
               />
               Пропустить
             </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question.id.toString()}
+                value="Back"
+              />
+              Вернуться
+            </label>
           </div>
         </div>
       );
@@ -267,6 +276,15 @@ export function Question({
                 value="Skip"
               />
               Пропустить
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
@@ -342,6 +360,15 @@ export function Question({
               />
               Пропустить
             </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question.id.toString()}
+                value="Back"
+              />
+              Вернуться
+            </label>
           </div>
         </div>
       );
@@ -397,6 +424,15 @@ export function Question({
                 value="Skip"
               />
               Пропустить
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
@@ -457,6 +493,15 @@ export function Question({
                 value="Skip"
               />
               Пропустить
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
@@ -521,6 +566,15 @@ export function Question({
               />
               Пропустить
             </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question.id.toString()}
+                value="Back"
+              />
+              Вернуться
+            </label>
           </div>
         </div>
       );
@@ -575,6 +629,15 @@ export function Question({
                 value="Skip"
               />
               Пропустить
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
@@ -637,6 +700,15 @@ export function Question({
               />
               Пропустить
             </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question.id.toString()}
+                value="Back"
+              />
+              Вернуться
+            </label>
           </div>
         </div>
       );
@@ -697,6 +769,15 @@ export function Question({
                 value="Skip"
               />
               Пропустить
+            </label>
+            <label>
+              <input
+                type="radio"
+                onClick={() => handleYesClick(-1)}
+                name={question.id.toString()}
+                value="Back"
+              />
+              Вернуться
             </label>
           </div>
         </div>
