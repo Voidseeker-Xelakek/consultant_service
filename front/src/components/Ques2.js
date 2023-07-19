@@ -69,6 +69,7 @@ export function Ques2({
   const renderQuestion = () => {
     const questions2 = questionsList[1];
     const question2 = questions2[currentQuestion1];
+
     if (!question2 && toAsk.includes("Даня")) {
       return (
         <Question

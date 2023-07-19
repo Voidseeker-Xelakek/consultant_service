@@ -49,7 +49,7 @@ export default function PreviousQuestions({ allQuestions, prevQuestions }) {
           {" "}
           {showPrevious ? (
             <button className="prevButton" onClick={handleHidePrevious}>
-              Убрать предыдущие вопросы
+              Скрыть предыдущие вопросы
             </button>
           ) : (
             <button className="prevButton" onClick={handleShowPrevious}>
