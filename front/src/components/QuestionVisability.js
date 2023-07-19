@@ -20,7 +20,9 @@ export default function QuestionVisibility({
       {showRecommendations && (
         <Recomendations recomendations={recomendations} indexes={indexes} />
       )}
-      <button onClick={toggleShow}>{buttonText}</button>
+      <button className="showQuesBtn" onClick={toggleShow}>
+        {buttonText}
+      </button>
     </div>
   );
 }
