@@ -97,6 +97,7 @@ function replaceLinks(text) {
 
   const linkRegex11 =
     /ч\. 5 ст\. 8 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
+  
   const link11 =
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_51038/49cb99b1bfe1a09caaf585874de97bdb34fc6d48/" target="_blank" rel="noopener noreferrer">ч. 5 ст. 8 Закона «Об участии в долевом строительстве» №214-ФЗ</a>';
 
@@ -116,13 +117,12 @@ function replaceLinks(text) {
   const link15 =
     '<a href="https://rosreestr.gov.ru/eservices/request_info_from_egrn/" target="_blank" rel="noopener noreferrer">Росреестре</a>';
 
-  const linkRegex16 =
-    /ч\. 3 ст\. 4 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
+  const linkRegex16 = /ч\. 3 ст\. 4 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
   const link16 =
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_51038/6837eb5962d010b4c55b5544c6cc4415019883b5/" target="_blank" rel="noopener noreferrer">ч. 3 ст. 4 Закона «Об участии в долевом строительстве» №214-ФЗ</a>';
 
-  const linkRegex17 =
-    /ст\. 48 Закона «О государственной регистрации недвижимости» №218-ФЗ/g;
+  const linkRegex17 = /ст\. 48 Закона «О государственной регистрации недвижимости» №218-ФЗ/g;
+
   const link17 =
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_182661/dac27a09269eef4667312b67231518014c5a6544/" target="_blank" rel="noopener noreferrer">ст. 48 Закона «О государственной регистрации недвижимости» №218-ФЗ</a>';
 
@@ -169,24 +169,24 @@ function replaceLinks(text) {
   const linkRegex28 = /ГАС «Правосудие»/g;
   const link28 =
     '<a href="https://ej.sudrf.ru/" target="_blank" rel="noopener noreferrer">ГАС «Правосудие»</a>';
-
+  
   const linkRegex29 = /Судебные и нормативные акты РФ (СудАкт)/g;
   const link29 =
     '<a href="https://sudact.ru/" target="_blank" rel="noopener noreferrer">Судебные и нормативные акты РФ (СудАкт)</a>';
-
+  
   const linkRegex30 = /Едином реестре застройщиков/g;
   const link30 =
     '<a href="https://наш.дом.рф/сервисы/единый-реестр-застройщиков" target="_blank" rel="noopener noreferrer">Едином реестре застройщиков</a>';
-
+  
   const linkRegex31 = /Единого реестра проблемных объектов/g;
   const link31 =
     '<a href="https://xn--80az8a.xn--d1aqf.xn--p1ai/%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%8B/%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3-%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BA/%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D0%BD%D1%8B%D1%85-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2?objectIds=40822%2C48104%2C41069" target="_blank" rel="noopener noreferrer">Единого реестра проблемных объектов</a>';
 
-  const linkRegex32 =
-    /Главного управления государственного строительного надзора Московской области/g;
+  const linkRegex32 = /Главного управления государственного строительного надзора Московской области/g;
   const link32 =
     '<a href="https://gusn.mosreg.ru/deyatelnost/reestr-zablokirovannykh-zastroishikov" target="_blank" rel="noopener noreferrer">Главного управления государственного строительного надзора Московской области</a>';
-
+  
+  
   let replacedText = text;
 
   if (linkRegex1.test(replacedText)) {

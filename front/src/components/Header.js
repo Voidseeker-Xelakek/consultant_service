@@ -1,6 +1,8 @@
+
 import { Link } from "react-router-dom";
 import logo from "../img/logo1.png";
 import Navbar from "./Navbar";
+
 
 export default function Header() {
   const openMainWindow = () => {
