@@ -18,11 +18,10 @@ body {
 }
 
 .navbar {
-  display: block;
+  display: flex;
   position: sticky;
   width: 20%;
   height: 100px;
-  float: right;
 }
 
 .navBtn {
@@ -32,11 +31,16 @@ body {
   cursor: pointer;
 }
 
+.navBtnCont {
+  display: flex;
+  width: 200px;
+}
+
 .calculatorBtn {
   padding: 0.4em 0.25em;
-  font-size: 30px;
+  font-size: 20px;
   cursor: pointer;
-  width: 100%;
+  width: 20%;
   border: 3px solid #222;
 }
 
@@ -377,8 +381,7 @@ footer {
 
 .showQuesBtn,
 .skipButton,
-.prevButton,
-.additionQuesBtn {
+.prevButton {
   display: inline-block;
   box-sizing: border-box;
   outline: none;
@@ -410,5 +413,40 @@ footer {
   box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
 }
 .showQuesBtn:active {
+  background-color: #808080;
+}
+
+.additionQuesBtn {
+  display: inline-block;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #8da68d;
+  border-radius: 50px;
+  height: 3em;
+  line-height: 46px;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  background-color: #8da68d;
+  width: 25em;
+  box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  transition: box-shadow 0.2s;
+}
+
+.additionQuesBtn:focus-visible {
+  border: 1px solid #4c51f9;
+  outline: none;
+}
+.additionQuesBtn:hover {
+  transition: all 0.2s;
+  box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+}
+.additionQuesBtn:active {
   background-color: #808080;
 }

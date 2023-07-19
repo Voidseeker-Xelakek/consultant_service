@@ -1,16 +1,10 @@
-
 import { Link } from "react-router-dom";
 import logo from "../img/logo1.png";
 import Navbar from "./Navbar";
 
-
 export default function Header() {
   const openMainWindow = () => {
     window.open("/");
-  };
-
-  const openCalcWindow = () => {
-    window.open("/calculator");
   };
 
   return (
@@ -28,12 +22,7 @@ export default function Header() {
         <span className="name">Надежный дом</span>
       </div>
       <div className="navbar">
-        <Navbar>
-          <button className="calculatorBtn">Личный кабинет</button>
-          <button className="calculatorBtn" onClick={openCalcWindow}>
-            Калькулятор выгоды
-          </button>
-        </Navbar>
+        <Navbar />
       </div>
     </header>
   );
