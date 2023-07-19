@@ -142,13 +142,13 @@ function replaceLinks(text) {
   const link21 =
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_39331/533a3bd27350eecb27de6e40b9e6e164a9199de6/" target="_blank" rel="noopener noreferrer">Реестр требований участников строительства</a>';
 
-  const linkRegex22 = /ст\. 3/g;
+  const linkRegex22 = /ст\. 3 «Признаки банкротства юридического лица»/g;
   const link22 =
-    '<a href="https://www.consultant.ru/document/cons_doc_LAW_39331/a7a4a813672c6255bd00b9323a768b1892c97cda/" target="_blank" rel="noopener noreferrer">ст. 3</a>';
+    '<a href="https://www.consultant.ru/document/cons_doc_LAW_39331/a7a4a813672c6255bd00b9323a768b1892c97cda/" target="_blank" rel="noopener noreferrer">ст. 3 «Признаки банкротства юридического лица»</a>';
 
-  const linkRegex23 = /ч\. 2 ст\. 6/g;
+  const linkRegex23 = /ч\. 2 ст\. 6 Закона «О банкротстве» №127-ФЗ/g;
   const link23 =
-    '<a href="https://www.consultant.ru/document/cons_doc_LAW_39331/3fe8d4aaca9650ba62c13ae54fcab444cc149ef2/" target="_blank" rel="noopener noreferrer">ч. 2 ст. 6</a>';
+    '<a href="https://www.consultant.ru/document/cons_doc_LAW_39331/3fe8d4aaca9650ba62c13ae54fcab444cc149ef2/" target="_blank" rel="noopener noreferrer">ч. 2 ст. 6 Закона «О банкротстве» №127-ФЗ</a>';
 
   const linkRegex24 = /ФССП/g;
   const link24 =
@@ -170,9 +170,9 @@ function replaceLinks(text) {
   const link28 =
     '<a href="https://ej.sudrf.ru/" target="_blank" rel="noopener noreferrer">ГАС «Правосудие»</a>';
   
-  const linkRegex29 = /Судебные и нормативные акты РФ (СудАкт)/g;
+  const linkRegex29 = /Судебные и нормативные акты РФ/g;
   const link29 =
-    '<a href="https://sudact.ru/" target="_blank" rel="noopener noreferrer">Судебные и нормативные акты РФ (СудАкт)</a>';
+    '<a href="https://sudact.ru/" target="_blank" rel="noopener noreferrer">Судебные и нормативные акты РФ</a>';
   
   const linkRegex30 = /Едином реестре застройщиков/g;
   const link30 =
