@@ -90,30 +90,19 @@ export function Question({
               <input
                 type="radio"
                 onClick={() =>
-                  handleYesClick(1, null, question.id, question.type, " Да")
+                  handleYesClick(1, null, question.id, question.type, " К вопросам")
                 }
                 name={question.id.toString()}
                 value="Yes"
               />
-              Да
-            </label>
-            <label>
-              <input
-                type="radio"
-                onClick={() =>
-                  handleYesClick(19, 24, question.id, question.type, " Нет")
-                }
-                name={question.id.toString()}
-                value="Skip"
-              />
-              Нет
+              К вопросам
             </label>
             <label>
               <input
                 type="radio"
                 onClick={() =>
                   handleYesClick(
-                    19,
+                    18,
                     24,
                     question.id,
                     question.type,
@@ -472,7 +461,7 @@ export function Question({
     else if (
       question.type === "minor" &&
       question.mainType === 1 &&
-      question.id !== 6
+      question.id !== 5
     ) {
       return (
         <div className="question">
@@ -532,7 +521,7 @@ export function Question({
     } else if (
       question.type === "minor" &&
       question.mainType === 1 &&
-      question.id === 6
+      question.id === 5
     ) {
       // для миноров
       return (
