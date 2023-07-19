@@ -7,6 +7,10 @@ export default function Header() {
     window.open("/");
   };
 
+  const openCalcWindow = () => {
+    window.open("/calculator");
+  };
+
   return (
     <header className="App-header">
       <div className="left-section">
@@ -24,7 +28,9 @@ export default function Header() {
       <div className="navbar">
         <Navbar>
           <button className="calculatorBtn">Личный кабинет</button>
-          <button className="calculatorBtn">Калькулятор выгоды</button>
+          <button className="calculatorBtn" onClick={openCalcWindow}>
+            Калькулятор выгоды
+          </button>
         </Navbar>
       </div>
     </header>

@@ -1250,6 +1250,8 @@ function Main() {
     }
   };
 
+  const getLastAnswer = () => {};
+
   return (
     <div className="wrapper">
       <Header />
