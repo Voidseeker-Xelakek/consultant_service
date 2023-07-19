@@ -40,20 +40,13 @@ export function Ques2({
   lastAnswer,
   recomendations,
   indexes,
-  skipAll,
-  returnAll,
+  setCurrentQuestion1,
+  currentQuestion1,
+  setCurrentQuestion2,
+  currentQuestion2,
+  setCurrentQuestion3,
+  currentQuestion3,
 }) {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-
-  useEffect(() => {
-    if (skipAll) {
-      setCurrentQuestion(questionsList.length + 100); // Пропустить все вопросы
-    }
-    if (returnAll) {
-      setCurrentQuestion(0); // Вернуться к первому вопросу
-    }
-  }, [skipAll, returnAll]);
-
   const handleYesClick = (
     value,
     id,
@@ -61,13 +54,11 @@ export function Ques2({
     questionType,
     questionAnswer
   ) => {
-    if (skipAll) {
-      setCurrentQuestion(questionsList.length + 100); // Пропустить все вопросы
-    } else if (value === "Даня" || value === "Галя") {
+    if (value === "Даня" || value === "Галя") {
       toAsk.push(value);
-      setCurrentQuestion(currentQuestion + 100);
+      setCurrentQuestion1(currentQuestion1 + 100);
     } else {
-      setCurrentQuestion(currentQuestion + value);
+      setCurrentQuestion1(currentQuestion1 + value);
       if (id) {
         onAnswer(id);
       }
@@ -77,7 +68,7 @@ export function Ques2({
 
   const renderQuestion = () => {
     const questions2 = questionsList[1];
-    const question2 = questions2[currentQuestion];
+    const question2 = questions2[currentQuestion1];
     if (!question2 && toAsk.includes("Даня")) {
       return (
         <Question
@@ -86,6 +77,8 @@ export function Ques2({
           lastAnswer={lastAnswer}
           recomendations={recomendations}
           indexes={indexes}
+          setCurrentQuestion={setCurrentQuestion2}
+          currentQuestion={currentQuestion2}
         />
       );
     } else if (!question2 && toAsk.includes("Галя")) {
@@ -96,6 +89,8 @@ export function Ques2({
           lastAnswer={lastAnswer}
           recomendations={recomendations}
           indexes={indexes}
+          setCurrentQuestion={setCurrentQuestion3}
+          currentQuestion={currentQuestion3}
         />
       );
     } else if (!question2) {

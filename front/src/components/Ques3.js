@@ -22,9 +22,9 @@ export function Ques3({
   recomendations,
   indexes,
   skipAll,
+  setCurrentQuestion,
+  currentQuestion,
 }) {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-
   useEffect(() => {
     if (skipAll) {
       setCurrentQuestion(questionsList.length + 100);
