@@ -1,15 +1,15 @@
 import Calculator from "./components/Calculator";
 import React, { useState } from "react";
-import Main from "./components/Main";
+import App from "./components/App";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-function App() {
+function Main() {
   return (
     <div className="wrapper">
       <Router>
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<App />} />
           <Route path="/calculator" element={<Calculator />} />
         </Routes>
       </Router>
@@ -17,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export default Main;
