@@ -90,7 +90,13 @@ export function Question({
               <input
                 type="radio"
                 onClick={() =>
-                  handleYesClick(1, null, question.id, question.type, " К вопросам")
+                  handleYesClick(
+                    1,
+                    null,
+                    question.id,
+                    question.type,
+                    " К вопросам"
+                  )
                 }
                 name={question.id.toString()}
                 value="Yes"

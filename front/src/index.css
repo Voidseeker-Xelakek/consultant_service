@@ -17,16 +17,6 @@ body {
   font-family: "Mulish", sans-serif;
 }
 
-/* .navigation-menu.expanded div {
-  display: block;
-  height: 100px;
-  background-color: #222;
-}
-
-.navigation-menu div {
-  dipslay: none;
-} */
-
 .navbar {
   display: block;
   position: sticky;
@@ -361,28 +351,6 @@ footer {
   text-align: center;
 }
 
-.prevButton {
-  display: inline-block;
-  box-sizing: border-box;
-  outline: none;
-  border: 1px solid #8da68d;
-  border-radius: 50px;
-  height: 3em;
-  line-height: 46px;
-  font-size: 1.1em;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-  background-color: #8da68d;
-  width: 25em;
-  box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
-  cursor: pointer;
-  user-select: none;
-  appearance: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  transition: box-shadow 0.2s;
-}
 .prevButton:focus-visible {
   border: 1px solid #4c51f9;
   outline: none;
@@ -395,7 +363,22 @@ footer {
   background-color: #808080;
 }
 
-.skipButton {
+.skipButton:focus-visible {
+  border: 1px solid #4c51f9;
+  outline: none;
+}
+.skipButton:hover {
+  transition: all 0.2s;
+  box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+}
+.skipButton:active {
+  background-color: #808080;
+}
+
+.showQuesBtn,
+.skipButton,
+.prevButton,
+.additionQuesBtn {
   display: inline-block;
   box-sizing: border-box;
   outline: none;
@@ -417,14 +400,15 @@ footer {
   vertical-align: top;
   transition: box-shadow 0.2s;
 }
-.skipButton:focus-visible {
+
+.showQuesBtn:focus-visible {
   border: 1px solid #4c51f9;
   outline: none;
 }
-.skipButton:hover {
+.showQuesBtn:hover {
   transition: all 0.2s;
   box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
 }
-.skipButton:active {
+.showQuesBtn:active {
   background-color: #808080;
 }

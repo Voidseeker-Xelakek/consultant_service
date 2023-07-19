@@ -7,7 +7,7 @@ export default function PreviousQuestions({ allQuestions, prevQuestions }) {
     ...allQuestions[2],
   ];
 
-  const [showPrevious, setShowPrevious] = useState(false);
+  const [showPrevious, setShowPrevious] = useState(true);
   const handleShowPrevious = () => {
     setShowPrevious(true);
   };
@@ -44,18 +44,20 @@ export default function PreviousQuestions({ allQuestions, prevQuestions }) {
             )}
         </div>
       ))}
-      <div className="prevButtonCont">
-        {" "}
-        {showPrevious ? (
-          <button className="prevButton" onClick={handleHidePrevious}>
-            Убрать предыдущие вопросы
-          </button>
-        ) : (
-          <button className="prevButton" onClick={handleShowPrevious}>
-            Вывести предыдущие вопросы
-          </button>
-        )}
-      </div>
+      {prevQuestions.length !== 0 && (
+        <div className="prevButtonCont">
+          {" "}
+          {showPrevious ? (
+            <button className="prevButton" onClick={handleHidePrevious}>
+              Убрать предыдущие вопросы
+            </button>
+          ) : (
+            <button className="prevButton" onClick={handleShowPrevious}>
+              Вывести предыдущие вопросы
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }

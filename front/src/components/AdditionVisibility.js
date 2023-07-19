@@ -10,7 +10,9 @@ export default function AdditionVisibility({ children }) {
   return (
     <div className="component-container">
       {show && children}
-      <button onClick={toggleShow}>{buttonText}</button>
+      <button className="additionQuesBtn" onClick={toggleShow}>
+        {buttonText}
+      </button>
     </div>
   );
 }
