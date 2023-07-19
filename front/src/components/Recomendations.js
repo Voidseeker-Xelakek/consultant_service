@@ -80,19 +80,24 @@ function replaceLinks(text) {
   const link7 =
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_33773/f6fb5e26212db7c34ed9e1fc1e33a10f57b19470/" target="_blank" rel="noopener noreferrer">ст. 39.10 Земельного Кодекса РФ</a>';
 
-  const linkRegex8 = /ч\. 4 ст\. 4 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
+  const linkRegex8 =
+    /ч\. 4 ст\. 4 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
   const link8 =
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_51038/6837eb5962d010b4c55b5544c6cc4415019883b5/" target="_blank" rel="noopener noreferrer">ч. 4 ст. 4 Закона «Об участии в долевом строительстве» №214-ФЗ</a>';
 
-  const linkRegex9 = /ч\. 2 ст\. 6 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
+  const linkRegex9 =
+    /ч\. 2 ст\. 6 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
   const link9 =
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_51038/817620cd3c49f19912fc1ac0f98b10d17f65b75b/" target="_blank" rel="noopener noreferrer">ч. 2 ст. 6 Закона «Об участии в долевом строительстве» №214-ФЗ</a>';
 
-  const linkRegex10 = /ст\. 9 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
+  const linkRegex10 =
+    /ст\. 9 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
   const link10 =
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_51038/ec477af1fa0c9ca283f1c6b7e9262650fdc94940/" target="_blank" rel="noopener noreferrer">ст. 9 Закона «Об участии в долевом строительстве» №214-ФЗ</a>';
 
-  const linkRegex11 = /ч\. 5 ст\. 8 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
+  const linkRegex11 =
+    /ч\. 5 ст\. 8 Закона «Об участии в долевом строительстве» №214-ФЗ/g;
+  
   const link11 =
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_51038/49cb99b1bfe1a09caaf585874de97bdb34fc6d48/" target="_blank" rel="noopener noreferrer">ч. 5 ст. 8 Закона «Об участии в долевом строительстве» №214-ФЗ</a>';
 
@@ -117,6 +122,7 @@ function replaceLinks(text) {
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_51038/6837eb5962d010b4c55b5544c6cc4415019883b5/" target="_blank" rel="noopener noreferrer">ч. 3 ст. 4 Закона «Об участии в долевом строительстве» №214-ФЗ</a>';
 
   const linkRegex17 = /ст\. 48 Закона «О государственной регистрации недвижимости» №218-ФЗ/g;
+
   const link17 =
     '<a href="https://www.consultant.ru/document/cons_doc_LAW_182661/dac27a09269eef4667312b67231518014c5a6544/" target="_blank" rel="noopener noreferrer">ст. 48 Закона «О государственной регистрации недвижимости» №218-ФЗ</a>';
 

@@ -41,7 +41,7 @@ export function Ques2({
   recomendations,
   indexes,
   skipAll,
-  returnAll
+  returnAll,
 }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -63,8 +63,7 @@ export function Ques2({
   ) => {
     if (skipAll) {
       setCurrentQuestion(questionsList.length + 100); // Пропустить все вопросы
-    }
-    else if (value === "Даня" || value === "Галя") {
+    } else if (value === "Даня" || value === "Галя") {
       toAsk.push(value);
       setCurrentQuestion(currentQuestion + 100);
     } else {

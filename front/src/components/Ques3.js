@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Recomendations from "./Recomendations";
+import Addition from "./Addition";
+import AdditionVisibility from "./AdditionVisibility";
 
 export let recsIndexes = [];
 
@@ -19,7 +21,7 @@ export function Ques3({
   lastAnswer,
   recomendations,
   indexes,
-  skipAll
+  skipAll,
 }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -38,13 +40,12 @@ export function Ques3({
   ) => {
     if (skipAll) {
       setCurrentQuestion(questionsList.length + 100); // Пропустить все вопросы
+    } else {
+      setCurrentQuestion(currentQuestion + value);
+      if (id) {
+        onAnswer(id);
+      }
     }
-    else {
-    setCurrentQuestion(currentQuestion + value);
-    if (id) {
-      onAnswer(id);
-    }
-  }
     lastAnswer(questionId, questionType, questionAnswer, 3);
   };
 
@@ -66,6 +67,9 @@ export function Ques3({
         <div className="question">
           <div className="mainQuestion">
             <p>{question3.text}</p>
+            <AdditionVisibility>
+              {question3.addition && <Addition addition={question3.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -96,6 +100,9 @@ export function Ques3({
         <div className="question">
           <div className="mainQuestion">
             <p>{question3.text}</p>
+            <AdditionVisibility>
+              {question3.addition && <Addition addition={question3.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -149,6 +156,9 @@ export function Ques3({
         <div className="question">
           <div className="mainQuestion">
             <p>{question3.text}</p>
+            <AdditionVisibility>
+              {question3.addition && <Addition addition={question3.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"

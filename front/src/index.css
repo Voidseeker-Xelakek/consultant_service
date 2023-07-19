@@ -17,20 +17,34 @@ body {
   font-family: "Mulish", sans-serif;
 }
 
-.calculator {
-  font-size: 1em;
-  text-align: right;
+/* .navigation-menu.expanded div {
+  display: block;
+  height: 100px;
+  background-color: #222;
+}
+
+.navigation-menu div {
+  dipslay: none;
+} */
+
+.navbar {
+  display: block;
+  position: sticky;
   width: 20%;
-  padding-top: 30px;
-  padding-right: 30px;
-  /* background-color: black; */
-  height: 70px;
+  height: 100px;
+  float: right;
+}
+
+.navBtn {
+  font-size: 20px;
+  border: none;
   background-color: #d0e0cc;
+  cursor: pointer;
 }
 
 .calculatorBtn {
   padding: 0.4em 0.25em;
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
   width: 100%;
   border: 3px solid #222;
@@ -42,17 +56,42 @@ body {
   color: black;
 }
 
-.center-section {
+.App-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  justify-content: space-between; /* Расстояние между секциями */
+  font-size: calc(10px + 2vmin);
+  color: black;
   background-color: #d0e0cc;
-  font-weight: 300;
-  height: 100px;
 }
 
-.right-section {
-  background-color: #d0e0cc;
-  height: 100px;
-  text-align: center;
-  list-style-type: none;
+.left-section {
+  display: flex;
+  position: sticky;
+  z-index: 1;
+  width: 20%;
+}
+
+.logo {
+  padding-left: 1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-section {
+  flex: 1.7; /* Равномерное распределение пространства */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  margin-left: 25%;
+  width: 50%;
 }
 
 .right-section div {
@@ -63,10 +102,6 @@ body {
 .right-section div:hover {
   cursor: ч;
   text-decoration: underline;
-}
-
-.left-section {
-  background-color: #d0e0cc;
 }
 
 footer {
@@ -199,14 +234,14 @@ footer {
 }
 
 .description {
-  display: flex;
+  display: block;
   background-color: #e7ede6;
 }
 
 .description p {
   font-size: 1.4em;
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding-top: 1.5em;
+  padding-bottom: 0.5em;
   margin-right: auto;
   margin-left: auto;
   width: 80%;
@@ -218,6 +253,7 @@ footer {
   display: block;
   background-color: #e7ede6;
   font-size: 1em;
+  padding-top: 1em;
   padding-bottom: 2em;
 }
 
