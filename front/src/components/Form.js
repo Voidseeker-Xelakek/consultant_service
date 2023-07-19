@@ -13,6 +13,20 @@ export function Form({
   const [currentQuestion2, setCurrentQuestion2] = useState(0);
   const [currentQuestion3, setCurrentQuestion3] = useState(0);
 
+  function replacedText(text) {
+    const linkRegex = /ФССП/g;
+    const link =
+      '<a href="https://egrul.nalog.ru/index.html" target="_blank" rel="noopener noreferrer">ФССП</a>';
+
+    let replacedText = text;
+
+    if (linkRegex.test(replacedText)) {
+      replacedText = replacedText.replace(linkRegex, link);
+    }
+
+    return replacedText;
+  }
+
   return (
     <main className="form-container">
       <div>
@@ -29,6 +43,7 @@ export function Form({
             currentQuestion2={currentQuestion2}
             setCurrentQuestion3={setCurrentQuestion3}
             currentQuestion3={currentQuestion3}
+            replacedText={replacedText}
           />
         </QuestionVisibility>
       </div>
