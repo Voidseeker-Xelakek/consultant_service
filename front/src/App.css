@@ -2,47 +2,6 @@
   text-align: center;
 }
 
-.App-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between; /* Расстояние между секциями */
-  font-size: calc(10px + 2vmin);
-  color: black;
-}
-
-.left-section {
-  flex: 0.3; /* Равномерное распределение пространства */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.center-section {
-  flex: 1.7; /* Равномерное распределение пространства */
-  display: flex;
-  padding-left: 20%;
-  align-items: center;
-  justify-content: center;
-}
-
-.right-section {
-  flex: 1; /* Равномерное распределение пространства */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo {
-  background-color: #c30df1 !important;
-  height: 10vmin;
-  width: 250vb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
 .nav {
   list-style-type: none;
   padding: 0;

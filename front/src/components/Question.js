@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Recomendations from "./Recomendations";
+import Addition from "./Addition";
+import AdditionVisibility from "./AdditionVisibility";
 
 export let recsIndexes = [];
 
@@ -36,7 +38,7 @@ export function Question({
   lastAnswer,
   recomendations,
   indexes,
-  skipAll
+  skipAll,
 }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -55,13 +57,12 @@ export function Question({
   ) => {
     if (skipAll) {
       setCurrentQuestion(questionsList.length + 100); // Пропустить все вопросы
+    } else {
+      setCurrentQuestion(currentQuestion + value);
+      if (id) {
+        onAnswer(id);
+      }
     }
-    else {
-    setCurrentQuestion(currentQuestion + value);
-    if (id) {
-      onAnswer(id);
-    }
-  }
     lastAnswer(questionId, questionType, questionAnswer, 1);
   };
 
@@ -82,6 +83,9 @@ export function Question({
         <div className="question">
           <div className="mainQuestion">
             <p>{question.text}</p>
+            <AdditionVisibility>
+              {question.addition && <Addition addition={question.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -130,6 +134,9 @@ export function Question({
         <div className="question">
           <div className="mainQuestion">
             <p>{question.text}</p>
+            <AdditionVisibility>
+              {question.addition && <Addition addition={question.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -224,6 +231,9 @@ export function Question({
         <div className="question">
           <div className="mainQuestion">
             <p>{question.text}</p>
+            <AdditionVisibility>
+              {question.addition && <Addition addition={question.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -272,6 +282,9 @@ export function Question({
         <div className="question">
           <div className="mainQuestion">
             <p>{question.text}</p>
+            <AdditionVisibility>
+              {question.addition && <Addition addition={question.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -342,6 +355,9 @@ export function Question({
         <div className="question">
           <div className="mainQuestion">
             <p>{question.text}</p>
+            <AdditionVisibility>
+              {question.addition && <Addition addition={question.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -399,6 +415,9 @@ export function Question({
         <div className="question">
           <div className="mainQuestion">
             <p>{question.text}</p>
+            <AdditionVisibility>
+              {question.addition && <Addition addition={question.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -459,6 +478,9 @@ export function Question({
         <div className="question">
           <div className="otherQuestion">
             <p>{question.text}</p>
+            <AdditionVisibility>
+              {question.addition && <Addition addition={question.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -517,6 +539,9 @@ export function Question({
         <div className="question">
           <div className="otherQuestion">
             <p>{question.text}</p>
+            <AdditionVisibility>
+              {question.addition && <Addition addition={question.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -569,6 +594,9 @@ export function Question({
         <div className="question">
           <div className="otherQuestion">
             <p>{question.text}</p>
+            <AdditionVisibility>
+              {question.addition && <Addition addition={question.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"
@@ -627,6 +655,9 @@ export function Question({
         <div className="question">
           <div className="otherQuestion">
             <p>{question.text}</p>
+            <AdditionVisibility>
+              {question.addition && <Addition addition={question.addition} />}
+            </AdditionVisibility>
             <label>
               <input
                 type="radio"

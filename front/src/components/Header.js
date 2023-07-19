@@ -1,29 +1,31 @@
-import { Link } from 'react-router-dom';
-import domPNG from "../img/dom.png";
-import Calculator from './Calculator';
-
+import { Link } from "react-router-dom";
+import logo from "../img/logo1.png";
+import Navbar from "./Navbar";
 
 export default function Header() {
-  const openCalculatorWindow = () => {
-    window.open('front/src/components/Calculator.js'); 
+  const openMainWindow = () => {
+    window.open("/");
   };
 
   return (
     <header className="App-header">
-      {/* <div className="left-section">
+      <div className="left-section">
         <img
-          src={domPNG}
+          className="logo"
+          src={logo}
           alt="DOM"
+          onClick={openMainWindow}
           style={{ width: "100px", height: "100px" }}
         />
-      </div> */}
+      </div>
       <div className="center-section">
         <span className="name">Надежный дом</span>
       </div>
-      <div className="calculator">
-        <btn className="calculatorBtn" onClick={openCalculatorWindow}>
-          Калькулятор выгоды
-        </btn>
+      <div className="navbar">
+        <Navbar>
+          <button className="calculatorBtn">Личный кабинет</button>
+          <button className="calculatorBtn">Калькулятор выгоды</button>
+        </Navbar>
       </div>
     </header>
   );
