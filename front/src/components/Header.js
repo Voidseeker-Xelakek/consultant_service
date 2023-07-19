@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import domPNG from "../img/dom.png";
 import Calculator from './Calculator';
 
