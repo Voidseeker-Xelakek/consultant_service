@@ -53,6 +53,33 @@ export function Ques3({
     const questions3 = questionsList;
 
     const question3 = questions3[currentQuestion];
+
+    function replacedText(text) {
+      const linkRegex = /Законом «О банкротстве» №127-ФЗ/g;
+      const link =
+        '<a href="https://www.consultant.ru/document/cons_doc_LAW_39331/" target="_blank" rel="noopener noreferrer">Законом «О банкротстве» №127-ФЗ</a>';
+
+      let replacedText = text;
+
+      if (linkRegex.test(replacedText)) {
+        replacedText = replacedText.replace(linkRegex, link);
+      }
+
+      return replacedText;
+    }
+
+    const formattedShortText = question3.text && replacedText(question3.text);
+    const formattedLongText =
+      question3.addition && replacedText(question3.addition);
+
+    const formattedShortTextWithLink = question3.text && (
+      <span dangerouslySetInnerHTML={{ __html: formattedShortText }}></span>
+    );
+
+    const formattedLongTextWithLink = question3.addition && (
+      <span dangerouslySetInnerHTML={{ __html: formattedLongText }}></span>
+    );
+
     if (!question3) {
       return (
         <div>
@@ -62,14 +89,17 @@ export function Ques3({
       );
     }
 
+    console.log(formattedShortTextWithLink);
     if (question3.type === "main") {
       return (
         <div className="question">
           <div className="mainQuestion">
-            <p>{question3.text}</p>
-            <AdditionVisibility>
-              {question3.addition && <Addition addition={question3.addition} />}
-            </AdditionVisibility>
+            <p>{formattedShortTextWithLink || question3.text}</p>
+            {question3.addition && (
+              <AdditionVisibility>
+                <p>{formattedLongTextWithLink || question3.addition}</p>
+              </AdditionVisibility>
+            )}
             <label>
               <input
                 type="radio"
