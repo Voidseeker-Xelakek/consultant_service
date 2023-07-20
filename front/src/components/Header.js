@@ -19,7 +19,7 @@ export default function Header() {
         />
       </div>
       <div className="center-section">
-        <span className="name">Надежный дом</span>
+        <span className="name">НАДЁЖНЫЙ ДОМ</span>
       </div>
       <div className="navbar">
         <Navbar />
