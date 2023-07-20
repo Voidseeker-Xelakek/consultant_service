@@ -169,7 +169,7 @@ footer {
   font-size: 15px;
 }
 
-.recomendation button {
+/* .recomendation button {
   margin-left: 30px;
   margin-bottom: 10px;
   padding-right: 500px;
@@ -180,13 +180,13 @@ footer {
   cursor: pointer;
   overflow: hidden;
   outline: none;
-}
+} */
 
-.recomendation button:hover {
+/* .recomendation button:hover {
   margin-bottom: 10px;
   padding-right: 100px;
   text-decoration: underline;
-}
+} */
 
 .prevForm {
   background-color: #b0c3ad;
