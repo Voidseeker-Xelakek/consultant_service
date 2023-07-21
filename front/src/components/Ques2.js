@@ -139,7 +139,7 @@ export function Ques2({
                 onClick={() =>
                   handleYesClick(1, null, question2.id, question2.type, " Да")
                 }
-                name={question2.id.toString}
+                name={question2.id.toString()}
                 value="Yes"
               />
               Да
@@ -176,7 +176,7 @@ export function Ques2({
                     " Да"
                   )
                 }
-                name={question2.id.toString}
+                name={question2.id.toString()}
                 value="Yes"
               />
               Да
