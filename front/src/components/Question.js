@@ -92,7 +92,7 @@ export function Question({
       const link5 =
         '<a href="https://pkk.rosreestr.ru/" target="_blank" rel="noopener noreferrer">публичной кадастровой карте</a>';
   
-      
+
       let replacedText = text;
 
       if (linkRegex1.test(replacedText)) {

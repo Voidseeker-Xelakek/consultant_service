@@ -450,3 +450,9 @@ footer {
 .additionQuesBtn:active {
   background-color: #808080;
 }
+
+.indent {
+  margin-left: 25px; 
+}
+
+
