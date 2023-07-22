@@ -187,7 +187,12 @@ function replaceLinks(text) {
     '<a href="https://gusn.mosreg.ru/deyatelnost/reestr-zablokirovannykh-zastroishikov" target="_blank" rel="noopener noreferrer">Главного управления государственного строительного надзора Московской области</a>';
   
   
-  let replacedText = text;
+  let replacedText = text.replace(/\n/g, "<br>");
+  replacedText = replacedText.replace(/(a\.\s*)/g, '<span class="indent" style="font-size: 100%">$1</span>');
+  replacedText = replacedText.replace(/(b\.\s*)/g, '<span class="indent" style="font-size: 100%">$1</span>');
+  replacedText = replacedText.replace(/(•\s*)/g, '<span class="indent" style="font-size: 80%">$1</span>');
+
+
 
   if (linkRegex1.test(replacedText)) {
     replacedText = replacedText.replace(linkRegex1, link1);
@@ -317,5 +322,7 @@ function replaceLinks(text) {
     replacedText = replacedText.replace(linkRegex32, link32);
   }
 
+  //replacedText = replacedText.split("\n");
+  
   return replacedText;
 }

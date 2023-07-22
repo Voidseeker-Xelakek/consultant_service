@@ -6,11 +6,11 @@ import AdditionVisibility from "./AdditionVisibility";
 export let recsIndexes = [];
 
 const mediumIndexDict3 = {
-  1: [54, 53],
-  2: [55, 53],
-  3: [56, 53],
-  4: [57, 53],
-  5: [58, 58],
+  1: [55, 54],
+  2: [56, 54],
+  3: [57, 54],
+  4: [58, 54],
+  5: [59, 59],
 };
 
 let toAsk = [];
@@ -140,8 +140,7 @@ export function Ques3({
       const link21 =
         '<a href="https://gusn.mosreg.ru/deyatelnost/reestr-zablokirovannykh-zastroishikov" target="_blank" rel="noopener noreferrer">сайт Главного управления строительного надзора Московской области</a>';
         
-
-      let replacedText = text;
+      let replacedText = text.replace(/\n/g, "<br>");
 
       if (linkRegex1.test(replacedText)) {
         replacedText = replacedText.replace(linkRegex1, link1);
@@ -307,7 +306,7 @@ export function Ques3({
               <input
                 type="radio"
                 onClick={() =>
-                  handleYesClick(1, null, question3.id, question3.type, " Да")
+                  handleYesClick(1, onAnswer(mediumIndexDict3[question3.id][0]), question3.id, question3.type, " Да")
                 }
                 name={question3.id.toString()}
                 value="Yes"
@@ -320,7 +319,7 @@ export function Ques3({
                 onClick={() =>
                   handleYesClick(
                     1,
-                    onAnswer(mediumIndexDict3[question3.id][0]),
+                    null,
                     question3.id,
                     question3.type,
                     " Нет"
@@ -374,7 +373,7 @@ export function Ques3({
               <input
                 type="radio"
                 onClick={() =>
-                  handleYesClick(100, 58, question3.id, question3.type, " Да")
+                  handleYesClick(100, 59, question3.id, question3.type, " Да")
                 }
                 name={question3.id.toString()}
                 value="Yes"
