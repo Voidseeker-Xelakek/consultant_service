@@ -6,6 +6,8 @@ import Instruction from "./Instruction";
 import React, { useState } from "react";
 import PreviousQuestions from "./PreviousQuestions";
 import "../App.css";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { Anchor } from "./Anchor";
 
 const questions2 = [
   //1 часть
@@ -1100,6 +1102,15 @@ function Main() {
         allQuestions={[questionsDaniil, questions2, questions3]}
         prevQuestions={prevQuestions}
       />
+      <ReactMarkdown
+        components={{
+          a: Anchor,
+        }}
+      >
+        {
+          "Опубликована ли информация о несостоятельности (банкротстве) застройщика  \nили введении одной из процедур, применяемых в деле о банкротстве,  \nв [Едином федеральном реестре сведений о банкротстве](https://bankrot.fedresurs.ru/), в [списке Единого реестра проблемных объектов](https://xn--80az8a.xn--d1aqf.xn--p1ai/%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%8B/%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3-%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BA/%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D0%BD%D1%8B%D1%85-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2?objectIds=40822%2C48104%2C41069) или [газете «Коммерсантъ»](https://www.kommersant.ru/)?\n"
+        }
+      </ReactMarkdown>
       <Form
         questions={questions}
         onAnswer={onAnswer}
