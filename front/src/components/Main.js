@@ -44,6 +44,13 @@ function Main() {
     setAnsweredQuestions((previousArr) => previousArr.slice(0, -1));
   };
 
+  const onQuestionRestart = () => {
+    setAnsweredQuestions([]);
+    setAnswers([]);
+    setCurrentQuestion(1);
+    setObtainedRecommendations([]);
+  };
+
   return (
     <div className="wrapper">
       <Header />
@@ -55,6 +62,7 @@ function Main() {
         currentQuestion={currentQuestion}
         recommendations={obtainedRecommendations}
         onQuestionBack={onQuestionBack}
+        onQuestionRestart={onQuestionRestart}
       />
       <Footer />
     </div>
