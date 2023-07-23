@@ -4,12 +4,26 @@ import Addition from "./Addition";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { Anchor } from "./Anchor";
 import { allRecomendations } from "../data/recommendations";
+import PDFFile from "./PDFFile";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 export default function Recomendations({ recommendations }) {
   return (
     <div className="recomendation">
-      <h1>Рекомендации</h1>
-      <button className="showQuesBtn"> Скачать Рекомендации</button>
+      <h1>
+        {recommendations.length > 0 ? "Рекомендации" : "Нет рекомендаций"}
+      </h1>
+      {recommendations.length > 0 && (
+        <PDFDownloadLink document={<PDFFile />} filename="FORM">
+          {({ loading }) =>
+            loading ? (
+              <button className="showQuesBtn">Loading Document...</button>
+            ) : (
+              <button>Скачать рекомендации</button>
+            )
+          }
+        </PDFDownloadLink>
+      )}
       {recommendations.map((r, i) => {
         const recommendation = allRecomendations.find((ar) => ar.id === r);
         return (
