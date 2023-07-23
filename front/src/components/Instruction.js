@@ -10,7 +10,7 @@ export default function Instruction() {
   return (
     <div className="instruction">
       <button className="instructionButton" onClick={toggleInstructions}>
-        Как пользоваться?
+        {isOpen ? "Закрыть инструкцию" : "Как пользоваться?"}
       </button>
       {isOpen && (
         <>

@@ -456,4 +456,32 @@ footer {
   margin-left: 25px; 
 }
 
+.recomendation .risk-buttons .risk-button {
+  font-size: 16px;
+  padding: 20px 30px;
+  border: none; 
+}
+
+.recomendation .gray-button {
+  background-color: gray;
+  color: white;
+}
+
+.recomendation .green-button {
+  background-color: green;
+  color: white;
+}
+
+.recomendation .yellow-button {
+  background-color: yellow;
+  color: black;
+}
+
+.recomendation .red-button {
+  background-color: red;
+  color: white;
+}
+
+
+
 

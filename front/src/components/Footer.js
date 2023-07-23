@@ -1,5 +1,10 @@
 import React from "react";
 
 export default function Footer() {
-  return <footer>Все права защищены &copy;</footer>;
+  return (
+    <footer>
+      <div>Информация, размещенная на сайте носит справочный характер</div>
+      <div>Все права защищены &copy;</div>
+    </footer>
+  );
 }
