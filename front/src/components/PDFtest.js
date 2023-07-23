@@ -8,7 +8,7 @@ const PDFtest = () => {
       <PDFDownloadLink document={<PDFFile />} filename="FORM">
         {({ loading }) =>
           loading ? (
-            <button>Loading Document...</button>
+            <button className="showQuesBtn">Loading Document...</button>
           ) : (
             <button>Download</button>
           )
