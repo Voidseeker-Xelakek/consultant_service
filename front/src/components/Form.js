@@ -5,12 +5,16 @@ import Recomendations from "./Recomendations";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { Anchor } from "./Anchor";
 
-export function Form({ onAnswer, currentQuestion, recommendations }) {
+export function Form({
+  onAnswer,
+  currentQuestion,
+  recommendations,
+  onQuestionBack,
+}) {
   const [showRecommendations, setShowRecommendations] = useState(false);
   const question = allQuestions.find((aq) => aq.id === currentQuestion);
   const answers =
     typeof question == "undefined" ? 0 : answerTypes[question.answerType];
-
   return (
     <main className="form-container">
       <div>
@@ -80,6 +84,9 @@ export function Form({ onAnswer, currentQuestion, recommendations }) {
                 : "Пропустить вопросы"}
             </button>
           )}
+          <button className="showQuesBtn" onClick={() => onQuestionBack()}>
+            Назад
+          </button>
         </div>
       </div>
     </main>

@@ -31,11 +31,17 @@ function Main() {
   };
 
   const onQuestionBack = () => {
-    //     const copy = [...answeredQuestions];
-    // copyArr.pop();
-    // setTodos(copyArr);
-    //     setAnsweredQuestions((previousArr) => (previousArr.slice(0, -1)));
-    setCurrentQuestion();
+    const id = answeredQuestions[answeredQuestions.length - 1];
+    const lastRec = obtainedRecommendations[obtainedRecommendations.length - 1];
+    const recs = allQuestions.find((aq) => aq.id === id).recomendations;
+    for (const el in recs) {
+      if (recs[el].includes(lastRec)) {
+        setObtainedRecommendations((previousArr) => previousArr.slice(0, -1));
+      }
+    }
+    setCurrentQuestion(id);
+    setAnswers((previousArr) => previousArr.slice(0, -1));
+    setAnsweredQuestions((previousArr) => previousArr.slice(0, -1));
   };
 
   return (
@@ -48,6 +54,7 @@ function Main() {
         onAnswer={onAnswer}
         currentQuestion={currentQuestion}
         recommendations={obtainedRecommendations}
+        onQuestionBack={onQuestionBack}
       />
       <Footer />
     </div>
