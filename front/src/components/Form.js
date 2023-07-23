@@ -10,6 +10,7 @@ export function Form({
   currentQuestion,
   recommendations,
   onQuestionBack,
+  onQuestionRestart,
 }) {
   const [showRecommendations, setShowRecommendations] = useState(false);
   const question = allQuestions.find((aq) => aq.id === currentQuestion);
@@ -87,6 +88,11 @@ export function Form({
           {currentQuestion !== 1 && (
             <button className="showQuesBtn" onClick={() => onQuestionBack()}>
               Назад
+            </button>
+          )}
+          {currentQuestion !== 1 && (
+            <button className="showQuesBtn" onClick={() => onQuestionRestart()}>
+              Начать анкету заново
             </button>
           )}
         </div>
