@@ -8,7 +8,8 @@ import { Anchor } from "./Anchor";
 export function Form({ onAnswer, currentQuestion, recommendations }) {
   const [showRecommendations, setShowRecommendations] = useState(false);
   const question = allQuestions.find((aq) => aq.id === currentQuestion);
-  const answers = answerTypes[question.answerType];
+  const answers =
+    typeof question == "undefined" ? 0 : answerTypes[question.answerType];
 
   return (
     <main className="form-container">
@@ -18,60 +19,67 @@ export function Form({ onAnswer, currentQuestion, recommendations }) {
             <Recomendations recommendations={recommendations} />
           ) : (
             <div className="question">
-              <div className="mainQuestion">
-                <p>
-                  <ReactMarkdown
-                    components={{
-                      a: Anchor,
-                    }}
-                  >
-                    {question.text}
-                  </ReactMarkdown>
-                </p>
-                {question.addition && (
-                  <AdditionVisibility>
+              {!question && (
+                <Recomendations recommendations={recommendations} />
+              )}
+              {question && (
+                <div className="mainQuestion">
+                  <p>
                     <ReactMarkdown
                       components={{
                         a: Anchor,
                       }}
                     >
-                      {question.addition}
+                      {question.text}
                     </ReactMarkdown>
-                  </AdditionVisibility>
-                )}
-                {answers.map((a, i) => {
-                  const key = question.id + i * 100;
-                  return (
-                    <label>
-                      <input
-                        type="radio"
-                        defaultChecked={false}
-                        key={key}
-                        onClick={(e) =>
-                          onAnswer(
-                            currentQuestion,
-                            +e.target.value,
-                            question.next[+e.target.value]
-                          )
-                        }
-                        name={question.id.toString()}
-                        value={i.toString()}
-                      />
-                      {a}
-                    </label>
-                  );
-                })}
-              </div>
+                  </p>
+                  {question.addition && (
+                    <AdditionVisibility>
+                      <ReactMarkdown
+                        components={{
+                          a: Anchor,
+                        }}
+                      >
+                        {question.addition}
+                      </ReactMarkdown>
+                    </AdditionVisibility>
+                  )}
+                  {answers.map((a, i) => {
+                    const key = question.id + i * 100;
+                    return (
+                      <label>
+                        <input
+                          type="radio"
+                          defaultChecked={false}
+                          key={key}
+                          onClick={(e) =>
+                            onAnswer(
+                              currentQuestion,
+                              +e.target.value,
+                              question.next[+e.target.value]
+                            )
+                          }
+                          name={question.id.toString()}
+                          value={i.toString()}
+                        />
+                        {a}
+                      </label>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           )}
-          <button
-            className="showQuesBtn"
-            onClick={() => setShowRecommendations((prev) => !prev)}
-          >
-            {showRecommendations
-              ? "Вернуться к вопросам"
-              : "Пропустить вопросы"}
-          </button>
+          {question && (
+            <button
+              className="showQuesBtn"
+              onClick={() => setShowRecommendations((prev) => !prev)}
+            >
+              {showRecommendations
+                ? "Вернуться к вопросам"
+                : "Пропустить вопросы"}
+            </button>
+          )}
         </div>
       </div>
     </main>
