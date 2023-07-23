@@ -14,12 +14,15 @@ export default function Recomendations({ recommendations }) {
         {recommendations.length > 0 ? "Рекомендации" : "Нет рекомендаций"}
       </h1>
       {recommendations.length > 0 && (
-        <PDFDownloadLink document={<PDFFile />} filename="FORM">
+        <PDFDownloadLink
+          document={<PDFFile recommendations={recommendations} />}
+          fileName="Рекомендации.pdf"
+        >
           {({ loading }) =>
             loading ? (
               <button className="showQuesBtn">Loading Document...</button>
             ) : (
-              <button>Скачать рекомендации</button>
+              <button className="showQuesBtn">Скачать рекомендации</button>
             )
           }
         </PDFDownloadLink>
