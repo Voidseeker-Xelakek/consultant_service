@@ -13,6 +13,7 @@ function Main() {
   const [answers, setAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [obtainedRecommendations, setObtainedRecommendations] = useState([]);
+  const [maxRisk, setMaxRisk] = useState([]);
 
   const onAnswer = (questionId, answer, nextQuestionId) => {
     setAnsweredQuestions((prevQuestions) => [...prevQuestions, questionId]);
