@@ -9,6 +9,7 @@ export default function Recomendations({ recommendations }) {
   return (
     <div className="recomendation">
       <h1>Рекомендации</h1>
+      <button className="showQuesBtn"> Скачать Рекомендации</button>
       {recommendations.map((r, i) => {
         const recommendation = allRecomendations.find((ar) => ar.id === r);
         return (
