@@ -84,9 +84,11 @@ export function Form({
                 : "Пропустить вопросы"}
             </button>
           )}
-          <button className="showQuesBtn" onClick={() => onQuestionBack()}>
-            Назад
-          </button>
+          {currentQuestion !== 1 && (
+            <button className="showQuesBtn" onClick={() => onQuestionBack()}>
+              Назад
+            </button>
+          )}
         </div>
       </div>
     </main>
