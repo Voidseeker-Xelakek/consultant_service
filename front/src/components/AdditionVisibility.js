@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function AdditionVisibility({ children }) {
+export default function AdditionVisibility({ children, component }) {
   const [show, setShow] = useState(false);
 
   return (
@@ -10,7 +10,11 @@ export default function AdditionVisibility({ children }) {
         className="additionQuesBtn"
         onClick={() => setShow((prev) => !prev)}
       >
-        {show ? "Скрыть дополнение" : "Дополнительно"}
+        {typeof component != "undefined"
+          ? show
+            ? "Скрыть дополнение"
+            : "Подробнее о рисках"
+          : "Дополнительно"}
       </button>
     </div>
   );
