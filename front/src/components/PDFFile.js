@@ -1,15 +1,19 @@
 import React from "react";
-import { Page, Text, Document, StyleSheet, Font } from "@react-pdf/renderer";
+import {
+  Page,
+  Text,
+  Document,
+  StyleSheet,
+  Font,
+  View,
+} from "@react-pdf/renderer";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { allRecomendations } from "../data/recommendations";
-import AdditionVisibility from "./AdditionVisibility";
-import Addition from "./Addition";
-import { Anchor } from "./Anchor";
 
 import MyCustomFont from "../fonts/Mulish-Regular.ttf";
 
 Font.register({
-  family: "AntonFamily",
+  family: "Mulish-Regular",
   src: MyCustomFont,
 });
 
@@ -22,26 +26,27 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     textAlign: "center",
-    fontFamily: "AntonFamily",
+    fontFamily: "Mulish-Regular",
   },
   text: {
     margin: 12,
-    fontSize: 14,
+    fontSize: 15,
     textAlign: "justify",
-    fontFamily: "AntonFamily",
+    fontFamily: "Mulish-Regular",
   },
 });
 
 const PDFFile = ({ recommendations }) => {
   return (
-    <Document>
+    <Document style={styles.text}>
       <Page key={1}>
         {recommendations.map((r, i) => {
           const recommendation = allRecomendations.find((ar) => ar.id === r);
           return (
-            <Text style={styles.text} className="shortRecomandation">
-              {recommendation.shortText}
-            </Text>
+            <View>
+              <Text style={styles.text} className="shortRecomandation"></Text>
+              <Text style={styles.text} className="shortRecomandation"></Text>
+            </View>
           );
         })}
       </Page>

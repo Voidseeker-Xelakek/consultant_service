@@ -9,6 +9,18 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { riskAddition } from "../data/recommendations";
 
 export default function Recomendations({ recommendations, maxRisk }) {
+  const filename =
+    "Рекомендации" +
+    "_" +
+    new Date().toLocaleString("en-US", {
+      day: "2-digit",
+    }) +
+    "_" +
+    new Date().toLocaleString("en-US", {
+      month: "2-digit",
+    }) +
+    "_" +
+    new Date().getFullYear();
   const risk_btn = ["", "", "", ""];
   if (maxRisk === 0) {
     risk_btn[0] = "!!!";
@@ -41,7 +53,7 @@ export default function Recomendations({ recommendations, maxRisk }) {
       {recommendations.length > 0 && (
         <PDFDownloadLink
           document={<PDFFile recommendations={recommendations} />}
-          fileName="Рекомендации.pdf"
+          fileName={filename}
         >
           {({ loading }) =>
             loading ? (
