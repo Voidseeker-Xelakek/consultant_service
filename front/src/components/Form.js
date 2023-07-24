@@ -11,6 +11,7 @@ export function Form({
   recommendations,
   onQuestionBack,
   onQuestionRestart,
+  maxRisk,
 }) {
   const [showRecommendations, setShowRecommendations] = useState(false);
   const question = allQuestions.find((aq) => aq.id === currentQuestion);
@@ -21,7 +22,10 @@ export function Form({
       <div>
         <div className="component-container">
           {showRecommendations ? (
-            <Recomendations recommendations={recommendations} />
+            <Recomendations
+              recommendations={recommendations}
+              maxRisk={maxRisk}
+            />
           ) : (
             <div className="question">
               {!question && (
