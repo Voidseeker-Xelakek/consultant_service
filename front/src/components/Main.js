@@ -7,12 +7,14 @@ import React, { useState } from "react";
 import PreviousQuestions from "./PreviousQuestions";
 import "../App.css";
 import { allQuestions } from "../data/questions";
+import { allRecomendations } from "../data/recommendations";
 
 function Main() {
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [obtainedRecommendations, setObtainedRecommendations] = useState([]);
+  const [maxRisk, setMaxRisk] = useState(0);
 
   const onAnswer = (questionId, answer, nextQuestionId) => {
     setAnsweredQuestions((prevQuestions) => [...prevQuestions, questionId]);
@@ -27,6 +29,20 @@ function Main() {
       : -1;
     if (nextRec !== -1) {
       setObtainedRecommendations((recs) => [...recs, nextRec]);
+      const risk = allRecomendations.find((aq) => aq.id === nextRec).risk;
+      const risk_no =
+        typeof allRecomendations.find((aq) => aq.id === nextRec).risk_no !=
+        "undefined"
+          ? allRecomendations.find((aq) => aq.id === nextRec).risk_no
+          : 0;
+      const risk_skip =
+        typeof allRecomendations.find((aq) => aq.id === nextRec).risk_skip !=
+        "undefined"
+          ? allRecomendations.find((aq) => aq.id === nextRec).risk_skip
+          : 0;
+      if (maxRisk < Math.max(risk, risk_no, risk_skip)) {
+        setMaxRisk(Math.max(risk, risk_no, risk_skip));
+      }
     }
   };
 
@@ -44,6 +60,14 @@ function Main() {
     setAnsweredQuestions((previousArr) => previousArr.slice(0, -1));
   };
 
+  const onQuestionRestart = () => {
+    setAnsweredQuestions([]);
+    setAnswers([]);
+    setCurrentQuestion(1);
+    setObtainedRecommendations([]);
+    setMaxRisk(0);
+  };
+
   return (
     <div className="wrapper">
       <Header />
@@ -55,6 +79,8 @@ function Main() {
         currentQuestion={currentQuestion}
         recommendations={obtainedRecommendations}
         onQuestionBack={onQuestionBack}
+        onQuestionRestart={onQuestionRestart}
+        maxRisk={maxRisk}
       />
       <Footer />
     </div>

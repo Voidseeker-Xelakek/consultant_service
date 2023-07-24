@@ -6,46 +6,57 @@ import { Anchor } from "./Anchor";
 import { allRecomendations } from "../data/recommendations";
 import PDFFile from "./PDFFile";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import "../index.css"
+import { riskAddition } from "../data/recommendations";
 
-export default function Recomendations({ recommendations }) {
-  const renderRiskLevel = () => {
-    if (recommendations.length > 0) {
-      return <h2>Средняя степень риска</h2>;
-    }
-    return null;
-  };
+export default function Recomendations({ recommendations, maxRisk }) {
+  const risk_btn = ["", "", "", ""];
+  if (maxRisk === 0) {
+    risk_btn[0] = "!!!";
+  } else if (maxRisk === 1) {
+    risk_btn[1] = "!!!";
+  } else if (maxRisk === 2) {
+    risk_btn[2] = "!!!";
+  } else {
+    risk_btn[3] = "!!!";
+  }
+  console.log(risk_btn[0]);
   return (
-  <div className="recomendation">
-      {renderRiskLevel()} 
-      {recommendations.length > 0 && (
-        <>
-        <div className="risk-buttons">
-          <button className="gray-button risk-button" />
-          <button className="green-button risk-button" /> 
-          <button className="yellow-button risk-button" />
-          <button className="red-button risk-button" />
-        </div>
-          <PDFDownloadLink document={<PDFFile />} filename="FORM">
-            {({ loading }) =>
-              loading ? (
-                <button className="showQuesBtn">Loading Document...</button>
-              ) : (
-                <button>Скачать рекомендации</button>
-              )
-            }
-          </PDFDownloadLink>
-        </>
-      )}
+    <div className="recomendation">
       <h1>
         {recommendations.length > 0 ? "Рекомендации" : "Нет рекомендаций"}
       </h1>
+      {recommendations.length > 0 && (
+        <div className="risk-buttons">
+          <button className="gray-button">{risk_btn[0]}</button>
+          <button className="green-button ">{risk_btn[1]}</button>
+          <button className="yellow-button">{risk_btn[2]}</button>
+          <button className="red-button ">{risk_btn[3]}</button>
+        </div>
+      )}
+      {recommendations.length > 0 && (
+        <AdditionVisibility component={"riskAddition"}>
+          <Addition addition={riskAddition} />
+        </AdditionVisibility>
+      )}
+      {recommendations.length > 0 && (
+        <PDFDownloadLink
+          document={<PDFFile recommendations={recommendations} />}
+          fileName="Рекомендации.pdf"
+        >
+          {({ loading }) =>
+            loading ? (
+              <button className="downloadBtn">Loading Document...</button>
+            ) : (
+              <button className="downloadBtn">Скачать рекомендации</button>
+            )
+          }
+        </PDFDownloadLink>
+      )}
       {recommendations.map((r, i) => {
         const recommendation = allRecomendations.find((ar) => ar.id === r);
         return (
           <div key={i} className="shortRecomandation">
             <div className="recommendation-item">
-              <span className="recommendation-id">{i + 1}</span>
               <span className="recommendation-text">
                 <ReactMarkdown
                   components={{
