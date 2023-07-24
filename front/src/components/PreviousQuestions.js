@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { allQuestions, answerTypes } from "../data/questions";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { Anchor } from "./Anchor";
 
 export default function PreviousQuestions({ questions, answers }) {
   const [showPrevious, setShowPrevious] = useState(false);
@@ -13,7 +15,13 @@ export default function PreviousQuestions({ questions, answers }) {
             const question = allQuestions.find((aq) => aq.id === q);
             return (
               <div className="questions-item">
-                <span className="questions-text">{question.text}</span>
+                <ReactMarkdown
+                  components={{
+                    a: Anchor,
+                  }}
+                >
+                  {question.text}
+                </ReactMarkdown>
                 <span className="questions-answer">
                   {
                     answerTypes[question.answerType][

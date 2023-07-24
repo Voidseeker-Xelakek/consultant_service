@@ -127,6 +127,12 @@ footer {
   margin-left: 30px;
 }
 
+.question li {
+  padding-top: 10px;
+  font-size: 1.5em;
+  margin-left: 30px;
+}
+
 .question label {
   display: block;
   overflow: hidden;
