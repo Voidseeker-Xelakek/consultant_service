@@ -395,7 +395,8 @@ footer {
 
 .showQuesBtn,
 .skipButton,
-.prevButton {
+.prevButton,
+.downloadBtn {
   display: inline-block;
   box-sizing: border-box;
   outline: none;
@@ -416,6 +417,11 @@ footer {
   touch-action: manipulation;
   vertical-align: top;
   transition: box-shadow 0.2s;
+  margin-left: 30px;
+}
+
+.downloadBtn {
+  margin-left: 70%;
 }
 
 .showQuesBtn:focus-visible {
@@ -470,36 +476,62 @@ footer {
 }
 
 .risk-buttons {
+  height: 50px;
+  text-align: center;
+  position: flex;
   width: 100%;
+  /* pointer-events: none; */
 }
 
-.recomendation .risk-buttons .risk-button {
-  font-size: 16px;
-  padding: 15px 40px;
-  border: 3px solid #222;
-}
-
-.recomendation .gray-button {
+.gray-button {
   background-color: gray;
   color: white;
-  width: 20%;
-  opacity: 0.7;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 2px solid black;
 }
 
-.recomendation .green-button {
+.green-button {
   background-color: rgb(124, 161, 124);
   color: white;
-  width: 20%;
+  border: 2px solid black;
 }
 
-.recomendation .yellow-button {
+.yellow-button {
   background-color: rgb(220, 197, 134);
   color: black;
-  width: 20%;
+  border: 2px solid black;
 }
 
-.recomendation .red-button {
+.red-button {
+  border: 2px solid black;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   background-color: rgb(220, 138, 138);
   color: white;
+}
+
+.red-button,
+.yellow-button,
+.green-button,
+.gray-button {
   width: 20%;
+  height: 50px;
+  line-height: 80px;
+  align-items: center;
+  font-size: 20px;
+  display: inline-block;
+  box-sizing: border-box;
+  outline: none;
+  height: 3em;
+  line-height: 46px;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  transition: box-shadow 0.2s;
 }
