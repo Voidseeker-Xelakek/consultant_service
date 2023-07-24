@@ -1,4 +1,4 @@
-import Calculator from "./components/Calculator";
+import InvestCalc from "./components/InvestCalc";
 import React, { useState } from "react";
 import Main from "./components/Main";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -10,7 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/calculator" element={<Calculator />} />
+          <Route path="/calculator" element={<InvestCalc />} />
         </Routes>
       </Router>
     </div>
