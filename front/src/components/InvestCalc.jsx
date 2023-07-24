@@ -3,15 +3,18 @@ import "./Invest_Calc.css";
 
 export default function Invest_Calc() {
   const [propertyCost, setPropertyCost] = useState("");
-  const [initialPayment, setInitialPayment] = useState("");
-  const [loanTerm, setLoanTerm] = useState("");
+  const [mortgageInitialPayment, setMortgageInitialPayment] = useState("");
+  const [mortgageLoanTerm, setMortgageLoanTerm] = useState("");
   const [mortgageTotal, setMortgageTotal] = useState(0);
+
+  const [installmentInitialPayment, setInstallmentInitialPayment] = useState("");
+  const [installmentLoanTerm, setInstallmentLoanTerm] = useState("");
   const [installmentTotal, setInstallmentTotal] = useState(0);
 
   const calculateMortgage = () => {
     const totalCost = parseFloat(propertyCost);
-    const downPayment = parseFloat(initialPayment);
-    const years = parseFloat(loanTerm);
+    const downPayment = parseFloat(mortgageInitialPayment);
+    const years = parseFloat(mortgageLoanTerm);
     const mortgageAmount = totalCost - downPayment;
     const monthlyInterestRate = 0.005; // Assuming 6% annual interest rate (0.06 / 12)
     const months = years * 12;
@@ -29,8 +32,8 @@ export default function Invest_Calc() {
       isNaN(downPayment) ||
       isNaN(years) ||
       propertyCost === "" ||
-      initialPayment === "" ||
-      loanTerm === "" ||
+      mortgageInitialPayment === "" ||
+      mortgageLoanTerm === "" ||
       totalCost < 0 ||
       downPayment < 0 ||
       years < 0
@@ -46,8 +49,8 @@ export default function Invest_Calc() {
 
   const calculateInstallment = () => {
     const totalCost = parseFloat(propertyCost);
-    const downPayment = parseFloat(initialPayment);
-    const years = parseFloat(loanTerm);
+    const downPayment = parseFloat(installmentInitialPayment);
+    const years = parseFloat(installmentLoanTerm);
     const installmentAmount = totalCost - downPayment;
     const monthlyInterestRate = 0.004; // Assuming 5% annual interest rate (0.05 / 12)
     const months = years * 12;
@@ -65,8 +68,8 @@ export default function Invest_Calc() {
       isNaN(downPayment) ||
       isNaN(years) ||
       propertyCost === "" ||
-      initialPayment === "" ||
-      loanTerm === "" ||
+      installmentInitialPayment === "" ||
+      installmentLoanTerm === "" ||
       totalCost < 0 ||
       downPayment < 0 ||
       years < 0
@@ -107,8 +110,8 @@ export default function Invest_Calc() {
           <input
             className="calculator-input"
             type="number"
-            value={initialPayment}
-            onChange={(e) => setInitialPayment(e.target.value)}
+            value={installmentInitialPayment}
+            onChange={(e) => setInstallmentInitialPayment(e.target.value)}
           />
         </div>
         <div className="input-group">
@@ -116,8 +119,8 @@ export default function Invest_Calc() {
           <input
             className="calculator-input"
             type="number"
-            value={loanTerm}
-            onChange={(e) => setLoanTerm(e.target.value)}
+            value={installmentLoanTerm}
+            onChange={(e) => setInstallmentLoanTerm(e.target.value)}
           />
         </div>
         <button className="calculator-button" onClick={handleCalculateInstallment}>
@@ -150,8 +153,8 @@ export default function Invest_Calc() {
           <input
             className="calculator-input"
             type="number"
-            value={initialPayment}
-            onChange={(e) => setInitialPayment(e.target.value)}
+            value={mortgageInitialPayment}
+            onChange={(e) => setMortgageInitialPayment(e.target.value)}
           />
         </div>
         <div className="input-group">
@@ -159,8 +162,8 @@ export default function Invest_Calc() {
           <input
             className="calculator-input"
             type="number"
-            value={loanTerm}
-            onChange={(e) => setLoanTerm(e.target.value)}
+            value={mortgageLoanTerm}
+            onChange={(e) => setMortgageLoanTerm(e.target.value)}
           />
         </div>
         <button className="calculator-button" onClick={handleCalculateMortage}>
