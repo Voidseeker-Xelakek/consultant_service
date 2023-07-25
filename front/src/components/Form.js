@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AdditionVisibility from "./AdditionVisibility";
 import { allQuestions, answerTypes } from "../data/questions";
-import Recomendations from "./Recomendations";
+import { Recomendations } from "./Recomendations";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { Anchor } from "./Anchor";
 
@@ -29,7 +29,10 @@ export function Form({
           ) : (
             <div className="question">
               {!question && (
-                <Recomendations recommendations={recommendations} />
+                <Recomendations
+                  recommendations={recommendations}
+                  maxRisk={maxRisk}
+                />
               )}
               {question && (
                 <div className="mainQuestion">

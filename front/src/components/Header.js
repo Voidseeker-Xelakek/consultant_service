@@ -21,9 +21,7 @@ export default function Header() {
       <div className="center-section">
         <span className="name">НАДЁЖНЫЙ ДОМ</span>
       </div>
-      <div className="navbar">
-        <Navbar />
-      </div>
+      <Navbar />
     </header>
   );
 }

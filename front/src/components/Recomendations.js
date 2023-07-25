@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import AdditionVisibility from "./AdditionVisibility";
 import Addition from "./Addition";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
@@ -8,8 +8,7 @@ import { riskAddition } from "../data/recommendations";
 import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
 import { type } from "@testing-library/user-event/dist/type";
 
-export default function Recomendations({ recommendations, maxRisk }) {
-  console.log(maxRisk);
+export const Recomendations = ({ recommendations, maxRisk }) => {
   const pdfExportComponent = useRef(null);
   const contentArea = useRef(null);
   const handleExportWithComponent = (event) => {
@@ -30,19 +29,22 @@ export default function Recomendations({ recommendations, maxRisk }) {
     new Date().getFullYear();
 
   const risk_btn = ["", "", "", ""];
-  if (
-    maxRisk[maxRisk.length - 1][0] === -1 ||
-    typeof maxRisk[maxRisk.length - 1][0] === "undefined"
-  ) {
-    risk_btn[1] = "!!!";
-  } else if (maxRisk[maxRisk.length - 1][0] === 0) {
-    risk_btn[0] = "!!!";
-  } else if (maxRisk[maxRisk.length - 1][0] === 1) {
-    risk_btn[1] = "!!!";
-  } else if (maxRisk[maxRisk.length - 1][0] === 2) {
-    risk_btn[2] = "!!!";
-  } else if (maxRisk[maxRisk.length - 1][0] === 3) {
-    risk_btn[3] = "!!!";
+  useEffect(() => {
+    console.log(maxRisk);
+  }, [maxRisk]);
+  console.log(recommendations);
+  if (maxRisk) {
+    if (maxRisk.slice(-1)[0][0] === -1) {
+      risk_btn[1] = "!!!";
+    } else if (maxRisk.slice(-1)[0][0] === 0) {
+      risk_btn[0] = "!!!";
+    } else if (maxRisk.slice(-1)[0][0] === 1) {
+      risk_btn[1] = "!!!";
+    } else if (maxRisk.slice(-1)[0][0] === 2) {
+      risk_btn[2] = "!!!";
+    } else if (maxRisk.slice(-1)[0][0] === 3) {
+      risk_btn[3] = "!!!";
+    }
   }
   return (
     <div className="recomendation">
@@ -106,4 +108,4 @@ export default function Recomendations({ recommendations, maxRisk }) {
       )}
     </div>
   );
-}
+};
