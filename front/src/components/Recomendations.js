@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import AdditionVisibility from "./AdditionVisibility";
 import Addition from "./Addition";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { Anchor } from "./Anchor";
 import { allRecomendations } from "../data/recommendations";
-import PDFFile from "./PDFFile";
-import { PDFDownloadLink } from "@react-pdf/renderer";
 import { riskAddition } from "../data/recommendations";
+import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
 
 export default function Recomendations({ recommendations, maxRisk }) {
+  const pdfExportComponent = useRef(null);
+  const contentArea = useRef(null);
+
+  const handleExportWithComponent = (event) => {
+    pdfExportComponent.current.save();
+  };
+
   const filename =
     "Рекомендации" +
     "_" +
@@ -51,42 +57,56 @@ export default function Recomendations({ recommendations, maxRisk }) {
         </AdditionVisibility>
       )}
       {recommendations.length > 0 && (
-        <PDFDownloadLink
-          document={<PDFFile recommendations={recommendations} />}
-          fileName={filename}
+        <div
+          className="pdf-content"
+          style={{
+            height: "445px",
+          }}
         >
-          {({ loading }) =>
-            loading ? (
-              <button className="downloadBtn">Loading Document...</button>
-            ) : (
-              <button className="downloadBtn">Скачать рекомендации</button>
-            )
-          }
-        </PDFDownloadLink>
-      )}
-      {recommendations.map((r, i) => {
-        const recommendation = allRecomendations.find((ar) => ar.id === r);
-        return (
-          <div key={i} className="shortRecomandation">
-            <div className="recommendation-item">
-              <span className="recommendation-text">
-                <ReactMarkdown
-                  components={{
-                    a: Anchor,
-                  }}
-                >
-                  {recommendation.shortText}
-                </ReactMarkdown>
-              </span>
-              {recommendation.longText && (
-                <AdditionVisibility>
-                  <Addition addition={recommendation.longText} />
-                </AdditionVisibility>
-              )}
-            </div>
+          <div className="button-area">
+            <button
+              className="downloadBtn"
+              primary={true}
+              onClick={handleExportWithComponent}
+            >
+              Скачать рекомендации
+            </button>
           </div>
-        );
-      })}
+          <PDFExport
+            fileName={filename}
+            ref={pdfExportComponent}
+            paperSize="A4"
+          >
+            <div ref={contentArea}>
+              {recommendations.map((r, i) => {
+                const recommendation = allRecomendations.find(
+                  (ar) => ar.id === r
+                );
+                return (
+                  <div key={i} className="shortRecomandation">
+                    <div className="recommendation-item">
+                      <span className="recommendation-text">
+                        <ReactMarkdown
+                          components={{
+                            a: Anchor,
+                          }}
+                        >
+                          {recommendation.shortText}
+                        </ReactMarkdown>
+                      </span>
+                      {recommendation.longText && (
+                        <AdditionVisibility>
+                          <Addition addition={recommendation.longText} />
+                        </AdditionVisibility>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </PDFExport>
+        </div>
+      )}
     </div>
   );
 }

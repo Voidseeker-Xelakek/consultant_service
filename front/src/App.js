@@ -10,7 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/calculator" element={<InvestCalc />} />
+          <Route path="/calculator" element={<InvestCalc />} />\
         </Routes>
       </Router>
     </div>
