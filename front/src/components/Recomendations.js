@@ -28,16 +28,20 @@ export default function Recomendations({ recommendations, maxRisk }) {
     }) +
     "_" +
     new Date().getFullYear();
+
   const risk_btn = ["", "", "", ""];
-  if (maxRisk === -1 || typeof maxRisk === "undefined") {
+  if (
+    maxRisk[maxRisk.length - 1][0] === -1 ||
+    typeof maxRisk[maxRisk.length - 1][0] === "undefined"
+  ) {
     risk_btn[1] = "!!!";
-  } else if (maxRisk === 0) {
+  } else if (maxRisk[maxRisk.length - 1][0] === 0) {
     risk_btn[0] = "!!!";
-  } else if (maxRisk === 1) {
+  } else if (maxRisk[maxRisk.length - 1][0] === 1) {
     risk_btn[1] = "!!!";
-  } else if (maxRisk === 2) {
+  } else if (maxRisk[maxRisk.length - 1][0] === 2) {
     risk_btn[2] = "!!!";
-  } else if (maxRisk === 3) {
+  } else if (maxRisk[maxRisk.length - 1][0] === 3) {
     risk_btn[3] = "!!!";
   }
   return (

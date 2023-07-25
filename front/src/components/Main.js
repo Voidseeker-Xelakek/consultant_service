@@ -14,7 +14,7 @@ function Main() {
   const [answers, setAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [obtainedRecommendations, setObtainedRecommendations] = useState([]);
-  const [maxRisk, setMaxRisk] = useState(-1);
+  const [maxRisk, setMaxRisk] = useState([[-1, 0]]);
 
   const onAnswer = (questionId, answer, nextQuestionId) => {
     setAnsweredQuestions((prevQuestions) => [...prevQuestions, questionId]);
@@ -33,7 +33,6 @@ function Main() {
   };
 
   const rec = obtainedRecommendations[obtainedRecommendations.length - 1];
-  console.log(rec);
   let curRisk = -1;
 
   if (typeof rec !== "undefined") {
@@ -43,14 +42,9 @@ function Main() {
     const risk_no = allRecomendations.find((aq) => aq.id === rec).risk_no;
     const risk_skip = allRecomendations.find((aq) => aq.id === rec).risk_skip;
 
-    console.log("risk:", risk);
-    console.log("risk_no:", risk_no);
-    console.log("risk_skip:", risk_skip);
-
     if (typeof risk_no === "undefined") {
       curRisk = risk;
     } else {
-      console.log("answer:", answer);
       if (answer === 0) {
         curRisk = risk;
       }
@@ -61,13 +55,10 @@ function Main() {
         curRisk = risk_skip;
       }
     }
-    if (maxRisk < curRisk) {
-      setMaxRisk(curRisk);
+    if (maxRisk[maxRisk.length - 1][0] < curRisk) {
+      setMaxRisk((recs) => [...recs, [curRisk, rec]]);
     }
   }
-
-  console.log("curRisk:", curRisk);
-  console.log("maxRisk:", maxRisk);
 
   const onQuestionBack = () => {
     const id = answeredQuestions[answeredQuestions.length - 1];
@@ -81,6 +72,9 @@ function Main() {
     setCurrentQuestion(id);
     setAnswers((previousArr) => previousArr.slice(0, -1));
     setAnsweredQuestions((previousArr) => previousArr.slice(0, -1));
+    if (maxRisk[maxRisk.length - 1][1] === lastRec) {
+      setMaxRisk((previousArr) => previousArr.slice(0, -1));
+    }
   };
 
   const onQuestionRestart = () => {
