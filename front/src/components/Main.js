@@ -82,7 +82,7 @@ function Main() {
     setAnswers([]);
     setCurrentQuestion(1);
     setObtainedRecommendations([]);
-    setMaxRisk(0);
+    setMaxRisk([[-1, 0]]);
   };
 
   return (
