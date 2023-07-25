@@ -10,7 +10,6 @@ import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
 export default function Recomendations({ recommendations, maxRisk }) {
   const pdfExportComponent = useRef(null);
   const contentArea = useRef(null);
-
   const handleExportWithComponent = (event) => {
     pdfExportComponent.current.save();
   };
@@ -29,7 +28,7 @@ export default function Recomendations({ recommendations, maxRisk }) {
     new Date().getFullYear();
   const risk_btn = ["", "", "", ""];
   if (maxRisk === 0) {
-    risk_btn[0] = "!!!";
+    risk_btn[1] = "!!!";
   } else if (maxRisk === 1) {
     risk_btn[1] = "!!!";
   } else if (maxRisk === 2) {
@@ -43,26 +42,17 @@ export default function Recomendations({ recommendations, maxRisk }) {
       <h1>
         {recommendations.length > 0 ? "Рекомендации" : "Нет рекомендаций"}
       </h1>
+      <div className="risk-buttons">
+        <button className="gray-button">{risk_btn[0]}</button>
+        <button className="green-button ">{risk_btn[1]}</button>
+        <button className="yellow-button">{risk_btn[2]}</button>
+        <button className="red-button ">{risk_btn[3]}</button>
+      </div>
+      <AdditionVisibility component={"riskAddition"}>
+        <Addition addition={riskAddition} />
+      </AdditionVisibility>
       {recommendations.length > 0 && (
-        <div className="risk-buttons">
-          <button className="gray-button">{risk_btn[0]}</button>
-          <button className="green-button ">{risk_btn[1]}</button>
-          <button className="yellow-button">{risk_btn[2]}</button>
-          <button className="red-button ">{risk_btn[3]}</button>
-        </div>
-      )}
-      {recommendations.length > 0 && (
-        <AdditionVisibility component={"riskAddition"}>
-          <Addition addition={riskAddition} />
-        </AdditionVisibility>
-      )}
-      {recommendations.length > 0 && (
-        <div
-          className="pdf-content"
-          style={{
-            height: "445px",
-          }}
-        >
+        <div className="recomendation">
           <div className="button-area">
             <button
               className="downloadBtn"

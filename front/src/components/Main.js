@@ -20,6 +20,7 @@ function Main() {
     setAnsweredQuestions((prevQuestions) => [...prevQuestions, questionId]);
     setAnswers((prevAnswers) => [...prevAnswers, answer]);
     setCurrentQuestion(nextQuestionId);
+    console.log(answer);
     const question = allQuestions.find((aq) => aq.id === questionId);
 
     const nextRec = question.recomendations.length
@@ -40,6 +41,7 @@ function Main() {
         "undefined"
           ? allRecomendations.find((aq) => aq.id === nextRec).risk_skip
           : 0;
+
       if (maxRisk < Math.max(risk, risk_no, risk_skip)) {
         setMaxRisk(Math.max(risk, risk_no, risk_skip));
       }
