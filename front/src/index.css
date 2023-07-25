@@ -43,8 +43,11 @@ body {
 .navBtnCont {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
+  align-items: center;
+  width: 200px;
+  margin-top: 50px;
+  margin-right: 20px;
+  background-color: #d0e0cc;
 }
 
 .calculatorBtn {
@@ -52,6 +55,7 @@ body {
   font-size: 20px;
   cursor: pointer;
   width: 100%;
+  background-color: #d0e0cc;
   border: 3px solid #222;
 }
 

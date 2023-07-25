@@ -21,19 +21,13 @@ export function Form({
     <main className="form-container">
       <div>
         <div className="component-container">
-          {showRecommendations ? (
+          {showRecommendations || !question ? (
             <Recomendations
               recommendations={recommendations}
               maxRisk={maxRisk}
             />
           ) : (
             <div className="question">
-              {!question && (
-                <Recomendations
-                  recommendations={recommendations}
-                  maxRisk={maxRisk}
-                />
-              )}
               {question && (
                 <div className="mainQuestion">
                   <p>
