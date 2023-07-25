@@ -21,6 +21,7 @@ function Main() {
     setAnswers((prevAnswers) => [...prevAnswers, answer]);
     setCurrentQuestion(nextQuestionId);
     const question = allQuestions.find((aq) => aq.id === questionId);
+    let currentRisk = 0;
 
     const nextRec = question.recomendations.length
       ? question.recomendations[+answer].length
@@ -29,36 +30,42 @@ function Main() {
       : -1;
     if (nextRec !== -1) {
       setObtainedRecommendations((recs) => [...recs, nextRec]);
+
+      const risk = allRecomendations.find((aq) => aq.id === nextRec).risk;
+      const risk_no = allRecomendations.find((aq) => aq.id === nextRec).risk_no;
+      const risk_skip = allRecomendations.find(
+        (aq) => aq.id === nextRec
+      ).risk_skip;
+
+      console.log("answer " + answer);
+      console.log("CURRUIS " + currentRisk);
+      console.log("risk_no", risk_no);
+
+      if (risk_no === undefined) {
+        currentRisk = risk;
+      } else {
+        if (answer === 0) {
+          currentRisk = risk;
+        }
+        if (answer === 1) {
+          currentRisk = risk_no;
+        }
+        if (answer === 2) {
+          currentRisk = risk_skip;
+        }
+      }
+      console.log("curr after" + currentRisk);
+      console.log(maxRisk[maxRisk.length - 1][0] < currentRisk);
+      if (maxRisk[maxRisk.length - 1][0] < currentRisk) {
+        setMaxRisk((risks) => [...risks, [currentRisk, nextRec]]);
+        console.log("max risk set");
+      }
+      console.log(currentRisk);
+      console.log("inside");
+      console.log(maxRisk);
     }
+    console.log(nextRec);
   };
-
-  const rec = obtainedRecommendations[obtainedRecommendations.length - 1];
-  let curRisk = -1;
-
-  if (typeof rec !== "undefined") {
-    const answer = answers[answers.length - 1];
-
-    const risk = allRecomendations.find((aq) => aq.id === rec).risk;
-    const risk_no = allRecomendations.find((aq) => aq.id === rec).risk_no;
-    const risk_skip = allRecomendations.find((aq) => aq.id === rec).risk_skip;
-
-    if (typeof risk_no === "undefined") {
-      curRisk = risk;
-    } else {
-      if (answer === 0) {
-        curRisk = risk;
-      }
-      if (answer === 1) {
-        curRisk = risk_no;
-      }
-      if (answer === 2) {
-        curRisk = risk_skip;
-      }
-    }
-    if (maxRisk[maxRisk.length - 1][0] < curRisk) {
-      setMaxRisk((recs) => [...recs, [curRisk, rec]]);
-    }
-  }
 
   const onQuestionBack = () => {
     const id = answeredQuestions[answeredQuestions.length - 1];
