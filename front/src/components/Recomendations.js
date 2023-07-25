@@ -6,8 +6,10 @@ import { Anchor } from "./Anchor";
 import { allRecomendations } from "../data/recommendations";
 import { riskAddition } from "../data/recommendations";
 import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
+import { type } from "@testing-library/user-event/dist/type";
 
 export default function Recomendations({ recommendations, maxRisk }) {
+  console.log(maxRisk);
   const pdfExportComponent = useRef(null);
   const contentArea = useRef(null);
   const handleExportWithComponent = (event) => {
@@ -27,16 +29,17 @@ export default function Recomendations({ recommendations, maxRisk }) {
     "_" +
     new Date().getFullYear();
   const risk_btn = ["", "", "", ""];
-  if (maxRisk === 0) {
+  if (maxRisk === -1 || typeof maxRisk === "undefined") {
     risk_btn[1] = "!!!";
+  } else if (maxRisk === 0) {
+    risk_btn[0] = "!!!";
   } else if (maxRisk === 1) {
     risk_btn[1] = "!!!";
   } else if (maxRisk === 2) {
     risk_btn[2] = "!!!";
-  } else {
+  } else if (maxRisk === 3) {
     risk_btn[3] = "!!!";
   }
-  console.log(risk_btn[0]);
   return (
     <div className="recomendation">
       <h1>
