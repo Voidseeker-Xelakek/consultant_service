@@ -17,6 +17,12 @@ body {
   font-family: "Mulish", sans-serif;
 }
 
+@font-face {
+  font-family: "DejaVu Sans";
+  src: url("https://kendo.cdn.telerik.com/2017.2.621/styles/fonts/DejaVu/DejaVuSans.ttf")
+    format("truetype");
+}
+
 .navbar {
   display: flex;
   height: 100px;

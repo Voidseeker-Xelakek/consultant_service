@@ -34,18 +34,25 @@ const styles = StyleSheet.create({
     textAlign: "justify",
     fontFamily: "Mulish-Regular",
   },
+  doc: {
+    border: 2,
+  },
 });
 
 const PDFFile = ({ recommendations }) => {
   return (
-    <Document style={styles.text}>
+    <Document style={styles.doc}>
       <Page key={1}>
         {recommendations.map((r, i) => {
           const recommendation = allRecomendations.find((ar) => ar.id === r);
           return (
             <View>
-              <Text style={styles.text} className="shortRecomandation"></Text>
-              <Text style={styles.text} className="shortRecomandation"></Text>
+              <Text style={styles.text} className="shortRecomandation">
+                {recommendation.shortText}
+              </Text>
+              <Text style={styles.text} className="shortRecomandation">
+                {recommendation.longText}
+              </Text>
             </View>
           );
         })}
