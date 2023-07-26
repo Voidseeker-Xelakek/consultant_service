@@ -510,7 +510,6 @@ footer {
   text-align: center;
   position: flex;
   width: 100%;
-  /* pointer-events: none; */
 }
 
 .gray-button {
@@ -553,9 +552,9 @@ footer {
   display: inline-block;
   box-sizing: border-box;
   outline: none;
-  height: 3em;
+  height: 50px;
   line-height: 46px;
-  font-size: 1.1em;
+  font-size: 30px;
   font-weight: 600;
   text-decoration: none;
   box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
@@ -564,4 +563,9 @@ footer {
   touch-action: manipulation;
   vertical-align: top;
   transition: box-shadow 0.2s;
+}
+
+.relevance {
+  margin-left: 80%;
+  font-size: 23px;
 }

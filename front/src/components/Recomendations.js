@@ -15,9 +15,7 @@ export const Recomendations = ({ recommendations, maxRisk, end }) => {
     pdfExportComponent.current.save();
   };
 
-  const filename =
-    "Рекомендации" +
-    "_" +
+  const downloadDate =
     new Date().toLocaleString("en-US", {
       day: "2-digit",
     }) +
@@ -26,6 +24,17 @@ export const Recomendations = ({ recommendations, maxRisk, end }) => {
       month: "2-digit",
     }) +
     "_" +
+    new Date().getFullYear();
+
+  const relevanceDate =
+    new Date().toLocaleString("en-US", {
+      day: "2-digit",
+    }) +
+    "." +
+    new Date().toLocaleString("en-US", {
+      month: "2-digit",
+    }) +
+    "." +
     new Date().getFullYear();
 
   console.log(maxRisk);
@@ -73,11 +82,12 @@ export const Recomendations = ({ recommendations, maxRisk, end }) => {
             </button>
           </div>
           <PDFExport
-            fileName={filename}
+            fileName={"Рекомендации" + "_" + downloadDate}
             ref={pdfExportComponent}
             paperSize="A4"
           >
             <div ref={contentArea}>
+              <p className="relevance">{"Актуально на " + relevanceDate}</p>
               {recommendations.map((r, i) => {
                 const recommendation = allRecomendations.find(
                   (ar) => ar.id === r
