@@ -8,7 +8,7 @@ import { riskAddition } from "../data/recommendations";
 import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
 import { type } from "@testing-library/user-event/dist/type";
 
-export const Recomendations = ({ recommendations, maxRisk }) => {
+export const Recomendations = ({ recommendations, maxRisk, end }) => {
   const pdfExportComponent = useRef(null);
   const contentArea = useRef(null);
   const handleExportWithComponent = (event) => {
@@ -28,22 +28,23 @@ export const Recomendations = ({ recommendations, maxRisk }) => {
     "_" +
     new Date().getFullYear();
 
+  console.log(maxRisk);
   const risk_btn = ["", "", "", ""];
-  useEffect(() => {
-    console.log(maxRisk);
-  }, [maxRisk]);
-  console.log(recommendations);
-  if (maxRisk) {
-    if (maxRisk.slice(-1)[0][0] === -1) {
-      risk_btn[1] = "!!!";
-    } else if (maxRisk.slice(-1)[0][0] === 0) {
-      risk_btn[0] = "!!!";
-    } else if (maxRisk.slice(-1)[0][0] === 1) {
-      risk_btn[1] = "!!!";
-    } else if (maxRisk.slice(-1)[0][0] === 2) {
-      risk_btn[2] = "!!!";
-    } else if (maxRisk.slice(-1)[0][0] === 3) {
-      risk_btn[3] = "!!!";
+  if (end && maxRisk.slice(-1)[0][0] < 2) {
+    risk_btn[1] = "!!!";
+  } else {
+    if (maxRisk) {
+      if (maxRisk.slice(-1)[0][0] === -1) {
+        risk_btn[1] = "!!!";
+      } else if (maxRisk.slice(-1)[0][0] === 0) {
+        risk_btn[0] = "!!!";
+      } else if (maxRisk.slice(-1)[0][0] === 1) {
+        risk_btn[1] = "!!!";
+      } else if (maxRisk.slice(-1)[0][0] === 2) {
+        risk_btn[2] = "!!!";
+      } else if (maxRisk.slice(-1)[0][0] === 3) {
+        risk_btn[3] = "!!!";
+      }
     }
   }
   return (
