@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import "./Invest_Calc.css";
 
 export default function Invest_Calc() {
-  const [propertyCost, setPropertyCost] = useState("");
+  const [mortgagePropertyCost, setMortgagePropertyCost] = useState("");
   const [mortgageInitialPayment, setMortgageInitialPayment] = useState("");
   const [mortgageLoanTerm, setMortgageLoanTerm] = useState("");
   const [mortgageTotal, setMortgageTotal] = useState(0);
   const [mortgageMonthlyInterestRate, setMortgageMonthlyInterestRate] = useState("");
 
+  const [installmentPropertyCost, setInstallmentPropertyCost] = useState("");
   const [installmentInitialPayment, setInstallmentInitialPayment] = useState("");
   const [installmentLoanTerm, setInstallmentLoanTerm] = useState("");
   const [installmentTotal, setInstallmentTotal] = useState(0);
@@ -16,11 +17,11 @@ export default function Invest_Calc() {
   const [calculationMessage, setCalculationMessage] = useState("");
 
   const calculateMortgage = () => {
-    const totalCost = parseFloat(propertyCost);
+    const totalMortgageCost = parseFloat(mortgagePropertyCost);
     const downPayment = parseFloat(mortgageInitialPayment);
     const years = parseFloat(mortgageLoanTerm);
     const interestRate = parseFloat(mortgageMonthlyInterestRate) / 100; // Преобразуем годовую ставку в десятичную форму
-    const mortgageAmount = totalCost - downPayment;
+    const mortgageAmount = totalMortgageCost - downPayment;
     const monthlyInterestRate = interestRate / 12; // Преобразуем годовую ставку в ежемесячную
     const months = years * 12;
 
@@ -33,13 +34,13 @@ export default function Invest_Calc() {
     const mortgageTotalAmount = monthlyPayment * months;
 
     if (
-      isNaN(totalCost) ||
+      isNaN(totalMortgageCost) ||
       isNaN(downPayment) ||
       isNaN(years) ||
-      propertyCost === "" ||
+      totalMortgageCost === "" ||
       mortgageInitialPayment === "" ||
       mortgageLoanTerm === "" ||
-      totalCost < 0 ||
+      totalMortgageCost < 0 ||
       downPayment < 0 ||
       years < 0
     ) {
@@ -53,12 +54,13 @@ export default function Invest_Calc() {
   };
 
   const calculateInstallment = () => {
-    const totalCost = parseFloat(propertyCost);
+    const totalInstallmentCost = parseFloat(installmentPropertyCost);
     const downPayment = parseFloat(installmentInitialPayment);
     const years = parseFloat(installmentLoanTerm);
     const interestRate = parseFloat(installmentMonthlyInterestRate) / 100; // Преобразуем годовую ставку в десятичную форму
-    const installmentAmount = totalCost - downPayment;
-    const monthlyInterestRate = interestRate / 12; // Преобразуем годовую ставку в ежемесячную
+    const installmentAmount = totalInstallmentCost - downPayment;
+    /*const monthlyInterestRate = interestRate / 12;*/ // Преобразуем годовую ставку в ежемесячную
+    const monthlyInterestRate = 0;
     const months = years * 12;
 
     const monthlyPayment =
@@ -70,13 +72,13 @@ export default function Invest_Calc() {
     const installmentTotalAmount = monthlyPayment * months;
 
     if (
-      isNaN(totalCost) ||
+      isNaN(totalInstallmentCost) ||
       isNaN(downPayment) ||
       isNaN(years) ||
-      propertyCost === "" ||
+      totalInstallmentCost === "" ||
       installmentInitialPayment === "" ||
       installmentLoanTerm === "" ||
-      totalCost < 0 ||
+      totalInstallmentCost < 0 ||
       downPayment < 0 ||
       years < 0
     ) {
@@ -93,7 +95,8 @@ export default function Invest_Calc() {
   const handleCalculateMortage = () => {
     calculateMortgage();
   };
-
+  */
+  /*
   const handleCalculateInstallment = () => {
     calculateInstallment();
   };
@@ -101,27 +104,27 @@ export default function Invest_Calc() {
 
   const handleCalculate = () => {
     const isValidInputs =
-      isValidNumber(propertyCost) &&
+      isValidNumber(installmentPropertyCost) &&
+      isValidNumber(mortgagePropertyCost) &&
       isValidNumber(mortgageInitialPayment) &&
       isValidNumber(mortgageLoanTerm) &&
       isValidNumber(installmentInitialPayment) &&
       isValidNumber(installmentLoanTerm) &&
-      isValidNumber(mortgageMonthlyInterestRate) &&
-      isValidNumber(installmentMonthlyInterestRate);
+      isValidNumber(mortgageMonthlyInterestRate);
   
     if (!isValidInputs) {
       alert("Неверные вводные данные");
       return;
-    } else if (mortgageMonthlyInterestRate > 100 || installmentMonthlyInterestRate > 100) {
+    } else if (mortgageMonthlyInterestRate > 100) {
       alert("Неверные вводные данные. Пожалуйста, убедитесь, что процентная ставка не превышает 100%.");
       return;
     }
   
-    const totalCost = parseFloat(propertyCost);
+    const totalMortgageCost = parseFloat(mortgagePropertyCost);
     const downPaymentMortgage = parseFloat(mortgageInitialPayment);
     const yearsMortgage = parseFloat(mortgageLoanTerm);
     const interestRateMortgage = parseFloat(mortgageMonthlyInterestRate) / 100;
-    const mortgageAmount = totalCost - downPaymentMortgage;
+    const mortgageAmount = totalMortgageCost - downPaymentMortgage;
     const monthlyInterestRateMortgage = interestRateMortgage / 12;
     const monthsMortgage = yearsMortgage * 12;
     const monthlyPaymentMortgage =
@@ -129,15 +132,13 @@ export default function Invest_Calc() {
       (Math.pow(1 + monthlyInterestRateMortgage, monthsMortgage) - 1);
     const mortgageTotalAmount = monthlyPaymentMortgage * monthsMortgage;
   
+    const totalInstallmentCost = parseFloat(installmentPropertyCost);
     const downPaymentInstallment = parseFloat(installmentInitialPayment);
     const yearsInstallment = parseFloat(installmentLoanTerm);
-    const interestRateInstallment = parseFloat(installmentMonthlyInterestRate) / 100;
-    const installmentAmount = totalCost - downPaymentInstallment;
-    const monthlyInterestRateInstallment = interestRateInstallment / 12;
     const monthsInstallment = yearsInstallment * 12;
-    const monthlyPaymentInstallment =
-      (installmentAmount * monthlyInterestRateInstallment * Math.pow(1 + monthlyInterestRateInstallment, monthsInstallment)) /
-      (Math.pow(1 + monthlyInterestRateInstallment, monthsInstallment) - 1);
+  
+    // Calculate the monthly payment for the installment directly
+    const monthlyPaymentInstallment = totalInstallmentCost / monthsInstallment;
     const installmentTotalAmount = monthlyPaymentInstallment * monthsInstallment;
   
     if (isNaN(mortgageTotalAmount) || isNaN(installmentTotalAmount) || mortgageTotalAmount < 0 || installmentTotalAmount < 0) {
@@ -163,27 +164,26 @@ export default function Invest_Calc() {
     setInstallmentTotal(installmentTotalAmount >= 0 ? installmentTotalAmount.toFixed(2) : 0);
   };
   
+  
   const isValidNumber = (value) => {
     if (value === "" || isNaN(value) || parseFloat(value) < 0) {
       return false;
     }
     return true;
   };
-  
-  
-
 
 return (
+  <div className="wrapper">
     <div className="calculator">
-      <div className="Credit">
+      <div className="Installment">
         <h2>По рассрочке</h2>
         <div className="input-group">
           <label className="calculator-label">Стоимость недвижимости (₽)</label>
           <input
             className="calculator-input"
             type="number"
-            value={propertyCost}
-            onChange={(e) => setPropertyCost(e.target.value)}
+            value={installmentPropertyCost}
+            onChange={(e) => setInstallmentPropertyCost(e.target.value)}
           />
         </div>
         <div className="input-group">
@@ -196,7 +196,7 @@ return (
           />
         </div>
         <div className="input-group">
-          <label className="calculator-label">Срок кредита (лет)</label>
+          <label className="calculator-label">Срок рассрочки (лет)</label>
           <input
             className="calculator-input"
             type="number"
@@ -204,22 +204,13 @@ return (
             onChange={(e) => setInstallmentLoanTerm(e.target.value)}
           />
         </div>
-        <div className="input-group">
-          <label className="calculator-label">Ежемесячная процентная ставка (%)</label>
-          <input
-            className="calculator-input"
-            type="number"
-            value={installmentMonthlyInterestRate}
-            onChange={(e) => setInstallmentMonthlyInterestRate(e.target.value)}
-          />
-        </div>
         {/*<button className="calculator-button" onClick={handleCalculateInstallment}>
           Рассчитать
-        </button>*/}
+</button>*/}
         <div className="result">
           <h3>Расчеты:</h3>
           <p>
-            Итого по рассрочке:{" "}
+          Рассрочка: общая сумма выплаты{" "}
             {isNaN(installmentTotal) ? "Неверные вводные данные" : `${installmentTotal >= 0 ? installmentTotal : 0} ₽`}
           </p>
         </div>
@@ -241,8 +232,8 @@ return (
           <input
             className="calculator-input"
             type="number"
-            value={propertyCost}
-            onChange={(e) => setPropertyCost(e.target.value)}
+            value={mortgagePropertyCost}
+            onChange={(e) => setMortgagePropertyCost(e.target.value)}
           />
         </div>
         <div className="input-group">
@@ -278,14 +269,14 @@ return (
         <div className="result">
           <h3>Расчеты:</h3>
           <p>
-            Итого по ипотеке:{" "}
+          Ипотека: общая сумма выплаты:{" "}
             {isNaN(mortgageTotal) ? "Неверные вводные данные" : `${mortgageTotal >= 0 ? mortgageTotal : 0} ₽`}
           </p>
         </div>
       </div>
     </div>
+    </div>
   );
-  
 }
 
 
