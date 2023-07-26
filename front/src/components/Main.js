@@ -37,10 +37,6 @@ function Main() {
         (aq) => aq.id === nextRec
       ).risk_skip;
 
-      console.log("answer " + answer);
-      console.log("CURRUIS " + currentRisk);
-      console.log("risk_no", risk_no);
-
       if (risk_no === undefined) {
         currentRisk = risk;
       } else {
@@ -58,13 +54,8 @@ function Main() {
       console.log(maxRisk[maxRisk.length - 1][0] < currentRisk);
       if (maxRisk[maxRisk.length - 1][0] < currentRisk) {
         setMaxRisk((risks) => [...risks, [currentRisk, nextRec]]);
-        console.log("max risk set");
       }
-      console.log(currentRisk);
-      console.log("inside");
-      console.log(maxRisk);
     }
-    console.log(nextRec);
   };
 
   const onQuestionBack = () => {
