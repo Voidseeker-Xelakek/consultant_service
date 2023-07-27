@@ -1,67 +1,108 @@
+/* Invest_Calc.css */
+
 .calculator {
-  text-align: center;
-  width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.Name{
-  width: 400 px;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-.Credit {
-  flex-basis: 50%;
-  margin-right: 10px;
-}
-
+/* Styles for each section (Installment, Name, Mortgage) */
+.Installment,
+.Name,
 .Mortgage {
-  flex-basis: 50%;
-  margin-left: 10px;
+  width: 30%; /* Setting equal width for all sections */
+  max-width: 400px; /* Limiting the maximum width of each section */
 }
 
+.Name {
+  text-align: center; /* Centering content in Name section */
+}
+
+.Installment,
+.Mortgage {
+  margin-bottom: 30px; /* Adding some space between sections */
+}
+
+/* Centering the content in each section */
 .input-group {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
 }
 
 .calculator-label {
   text-align: center;
-  display: block;
-  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .calculator-input {
-  width: 100%;
-  padding: 5px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
+.result {
+  margin-top: 20px;
+}
+
 .calculator-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 16px;
-  background-color: #007bff;
+  font-weight: bold;
   color: #fff;
+  background-color: #007bff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-
-.button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.result-message {
+  margin-top: 20px;
+  text-align: center;
 }
 
-.result {
-  margin-top: 20px;
+/* Additional styling for h2 headings */
+h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+h3{
+  text-align: center;
+}
+
+/* Media query to adjust layout for small screens */
+@media (max-width: 768px) {
+  .calculator {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Installment,
+  .Name,
+  .Mortgage {
+    max-width: 100%;
+    width: 80%;
+  }
+
+  .calculator-label,
+  .calculator-input {
+    font-size: 12px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .calculator-button {
+    font-size: 14px;
+  }
 }
 
