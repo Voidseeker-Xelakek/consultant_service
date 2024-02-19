@@ -8,3 +8,10 @@
 4) Вбиваете команду: npm install.
 5) Вбиваете команду: npm start.
 6) Сайт будет запущен через пару секунд.
+
+<ol>
+  <li>Microsoft</li>
+  <li>Google</li>
+  <li>Apple</li>
+  <li>IBM</li>
+</ol>
